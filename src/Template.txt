@@ -1,0 +1,22 @@
+Example:
+
+db.bookings.insertOne({
+"first_name": "Tester",
+"last_name": "Testman",
+"email": "test@hotmail.com",
+"phone": "+1455588855888",
+"guests": 2,
+"smoking": true,
+"bookDay": "2024-06-11",
+"bookTime": "14:30",
+"extra": "Hello World",
+"legalAge": true,
+"booking_id": "B666750-11",
+})
+
+db.bookings.updateOne({booking_id: "B666750-11"},
+{$set:{
+createdAt: "2024-06-24T21:18:04.519+00:00",
+updatedAt: "2024-06-24T23:18:04.519+00:00"
+	}
+})

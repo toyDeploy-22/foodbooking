@@ -1,0 +1,272 @@
+[{
+  "_id": {
+    "$oid": "66672839b9606a96d8077f9e"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588
+  "booking_id": "B673ba825c-13"855888",
+  "guests": 2,
+  "smoking": true,
+  
+  "bookDay": {
+    "$date": "2024-06-11T00:00:00.000Z"
+  },
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "createdAt": {
+    "$date": "2024-06-10T16:22:17.760Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-10T16:22:17.760Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666730c5b7621377553aa26f"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": true,
+  "bookDay": {
+    "$date": "2024-06-11T00:00:00.000Z"
+  },
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "createdAt": {
+    "$date": "2024-06-10T16:58:45.952Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-10T16:58:45.952Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66673147ba3017de99e29044"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": false,
+  "bookDay": {
+    "$date": "2024-06-11T00:00:00.000Z"
+  },
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "createdAt": {
+    "$date": "2024-06-10T17:00:55.204Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-10T17:00:55.204Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666732b77f46f4e100cf01d6"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": true,
+  "bookDay": "2024-06-11",
+  "bookTime": "14:30",
+  "extra": "Hello There",
+  "legalAge": true,
+  "createdAt": {
+    "$date": "2024-06-10T17:07:03.739Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-10T17:07:03.739Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6667345aa9311351294759a4"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": true,
+  "bookDay": "2024-06-11",
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "createdAt": {
+    "$date": "2024-06-10T17:14:02.620Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-10T17:14:02.620Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666736ce6f2003e77c170dd7"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": true,
+  "bookDay": "2024-06-11",
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "createdAt": {
+    "$date": "2024-06-10T17:24:30.812Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-10T17:24:30.812Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666738460c7c619a0d4ff3fb"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": true,
+  "bookDay": "2024-06-11",
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "createdAt": {
+    "$date": "2024-06-10T17:30:46.423Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-10T17:30:46.423Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666750f6c10e88f4d9ed97eb"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": true,
+  "bookDay": "2024-06-11",
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "booking_id": "B666750-12",
+  "createdAt": {
+    "$date": "2024-06-10T19:16:06.712Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-10T19:16:07.220Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6667524bc10e88f4d9ed97f0"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": true,
+  "bookDay": "2024-06-11",
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "booking_id": "B666752-13",
+  "createdAt": {
+    "$date": "2024-06-10T19:21:47.906Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-10T19:21:48.109Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666752c4c10e88f4d9ed97f5"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": true,
+  "bookDay": "2024-06-11",
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "booking_id": "B666752-14",
+  "createdAt": {
+    "$date": "2024-06-10T19:23:48.227Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-10T19:23:48.428Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66675341c10e88f4d9ed97fa"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": true,
+  "bookDay": "2024-06-11",
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "booking_id": "B666753-15",
+  "createdAt": {
+    "$date": "2024-06-10T19:25:53.986Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-10T19:25:54.519Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667b3b9e01cce963d6d5e5cf"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": true,
+  "bookDay": "2024-06-11",
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "booking_id": "B666750-11",
+  "createdAt": "2024-06-24T21:18:04.519+00:00",
+  "updatedAt": "2024-06-24T23:18:04.519+00:00"
+}]

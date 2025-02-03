@@ -1,0 +1,71 @@
+
+.fruitsCover {
+    background-image: url("./Cover/Kiwi Cover.jpg");
+    background-repeat: repeat;
+    background-size: 15%;
+    padding: 1% 3%;
+    min-height: 100vh;
+}
+
+.coverContainer {
+    background-repeat: no-repeat;
+    padding: 1% 5%;
+    background-color: rgba(245, 245, 245, 0.868);
+}
+
+@counter-style avocado {
+  system: cyclic;
+  symbols: "🥑";
+  suffix: " ";
+}
+
+ul.ingredients {
+    list-style: avocado;
+    font-family: cursive, 'Courier New', Courier, monospace;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.dishMenuColor {
+    background: linear-gradient(114deg, rgba(37,99,16,1) 30%, rgba(14,124,92,1) 80%);
+}
+
+.h4Header {
+font-size: 1.5em;
+font-weight: bold;
+}
+
+.h5Header {
+font-size: 1.10em;
+font-weight: bold;
+font-family: cursive, 'Times New Roman', Times, serif;
+}
+
+.h6Header {
+font-size: 0.67em;
+font-weight: bold;
+}
+
+.bookingNumberFound:hover {
+    color: #aae3e3 !important;
+}
+
+.noICancel-button {
+    color: black;
+}
+
+.noICancel-button:hover {
+    color: aliceblue;
+    transition: fade-in 0.25s ease-in;
+}
+
+/* BookingDetails */
+button.launchEditGuestDishes {
+    background: linear-gradient(51deg, rgba(21,0,36,1) 0%, rgba(87,9,121,1) 35%, rgba(0,120,255,1) 100%);
+}
+
+button.launchEditGuestDishes:hover {
+    font-weight: 700;
+    background: linear-gradient(304deg, rgba(57,24,81,1) 0%, rgba(130,39,170,1) 35%, rgba(90,157,232,1) 100%);
+    transition: fade-out 0.15s ease-in;
+}
