@@ -3,14 +3,14 @@
 
 ### Purpose ###
 
-_This app is a restaurant booking platform with two parts, one related to booking and the other one to dishes:_
+_This app is a restaurant booking platform with two parts, one related to the reservations and the other one to dishes:_
 
 ###### Booking ######
 
 - save a booking for you only (or for you and some guests) through a form and get a reservation number at the end of the registration
 - look for your booking details with this registration number, edit some data or delete your booking
 <br/>
-![Homepage & Search](gifs/Foodbooking (Home-Search).gif)
+![Homepage & Search](gifs/Foodbooking_(Home-Search).gif)
 
 ###### Dishes ######
 
@@ -28,5 +28,5 @@ _This app is a restaurant booking platform with two parts, one related to bookin
 - Form with a very strong validation check before confirming the booking (duplicate emails, telephone format, past date, sundays, time, number of guests, dish not listed, special characters on comments, etc.)
 - Chose a dish for each guest if the user is not coming alone
 <br />
-!(Form Validation)(gifs/Foodbooking (Form).gif)
+!(Form Validation)(gifs/Foodbooking_(Form).gif)
 
