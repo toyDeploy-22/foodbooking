@@ -29,10 +29,11 @@ function NavBar () {
             
             <NavDropdown title="Dishes" id="navbar-nav2">
               <NavDropdown.Item href="/dish/dishsearch/name">Find A Dish By Name</NavDropdown.Item>
+              {/*
               <NavDropdown.Item href="/dish/dishsearch/id">
                 Find A Dish By Id
               </NavDropdown.Item>
-              {/*
+              
               <NavDropdown.Divider />
               <NavDropdown.Item href="#">
                 Contact

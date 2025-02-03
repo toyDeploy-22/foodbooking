@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Homepage from './Components/Homepage.jsx';
 import DishList from "./Components/DishList.jsx";
 import DishProfileName from "./Components/DishProfileName.jsx";
-import DishProfileId from './Components/DishProfileId.jsx';
+// import DishProfileId from './Components/DishProfileId.jsx';
 import DishSearchName from './Components/DishSearchname.jsx';
 import DishSearchId from './Components/DishSearchId.jsx';
 import NotFound from './Components/NotFound.jsx';
@@ -21,7 +21,6 @@ return(
     <Route path={`${domainUrl}/dishsearch/name`} element={<DishSearchName meals={ meals } />} />
     <Route path={`${domainUrl}/dishsearch/id`} element={<DishSearchId meals={ meals } />} />
     <Route path={`${domainUrl}/name`} element={<DishProfileName meals={ meals }/>} />
-    <Route path={`${domainUrl}/id`} element={<DishProfileId meals={ meals }/>} />
     <Route path='dish/*' element={<NotFound />} />
     </Routes>)
 }
