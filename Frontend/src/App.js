@@ -21,13 +21,13 @@ useEffect(()=>{
 // For cleanup:
 const controller = new AbortController();
 const signal = controller.signal;
-// const localhost = http://localhost:5000 (for development)
+// const localhost = https://foodbooking-backend.vercel.app (for development)
 
 // useEffect always expects a regular function, not a Promise.
 const getDishes = async() => {
     try {
         setLoader(true);
-        const url = `https://foodbooking-backend.vercel.app/dish/alldishes`;
+        const url = `http://localhost:5000/dish/alldishes`;
         const fetchURL = await fetch(url, { signal: signal });
         const dataURL = await fetchURL.json();
         setFullDishes(() => [...dataURL]);
