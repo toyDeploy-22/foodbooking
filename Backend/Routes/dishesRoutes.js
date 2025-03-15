@@ -5,7 +5,19 @@ import allDishes from '../Src/All_Dishes.js';
 
 const dishRoute = Express.Router();
 
-dishRoute.get("/alldishes", cors(), (req, res)=>{
+const whitelist = ['http://localhost:5000', 'https://foodbooking-backend.vercel.app'];
+
+const corsOpts = {
+  origin: function (origin, callback) {
+	if (whitelist.indexOf(origin) !== -1) {
+	  callback(null, true)
+	} else {
+	  callback(new Error('Request not allowed by CORS'))
+	}
+  }
+}
+
+dishRoute.get("/alldishes", cors(corsOpts), (req, res)=>{
 	try {
 		res.json(allDishes)
 	} catch(err) {

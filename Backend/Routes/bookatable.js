@@ -7,6 +7,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 
 const bookatable = Express.Router();
+
 let result;
 
 bookatable.options('/new-table', cors())
