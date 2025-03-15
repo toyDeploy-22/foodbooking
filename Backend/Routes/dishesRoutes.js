@@ -5,7 +5,7 @@ import allDishes from '../Src/All_Dishes.js';
 
 const dishRoute = Express.Router();
 
-const whitelist = ['http://localhost:5000', 'https://foodbooking-backend.vercel.app'];
+const whitelist = ['http://localhost:5000', 'https://foodbooking-frontend.vercel.app'];
 
 const corsOpts = {
   origin: function (origin, callback) {
