@@ -1,24 +1,10 @@
 
 import Express from 'express';
-import cors from 'cors';
 import allDishes from '../Src/All_Dishes.js';
 
 const dishRoute = Express.Router();
 
-const whitelist = ['http://localhost:5000', 
-'https://foodbooking-frontend.vercel.app'];
-
-const corsOpts = {
-  origin: function (origin, callback) {
-	if (whitelist.indexOf(origin) !== -1) {
-	  callback(null, true)
-	} else {
-	  callback(new Error('Request not allowed by CORS'))
-	}
-  }
-}
-
-dishRoute.get("/alldishes", cors(corsOpts), (req, res)=>{
+dishRoute.get("/alldishes", (req, res)=>{
 	try {
 		res.json(allDishes)
 	} catch(err) {
@@ -31,7 +17,7 @@ dishRoute.get("/alldishes", cors(corsOpts), (req, res)=>{
 	}
 })
 
-dishRoute.get('/id', cors(corsOpts), (req, res)=>{
+dishRoute.get('/id', (req, res)=>{
 	// dish/id?dishid=...
 	try {
 	const dishId = req.query.dishid;
@@ -57,7 +43,7 @@ dishRoute.get('/id', cors(corsOpts), (req, res)=>{
 })
 
 
-dishRoute.get("/name", cors(corsOpts), (req, res)=>{
+dishRoute.get("/name", (req, res)=>{
 	// dish/name?dishname=...
 	try {
 	const dishName = req.query.dishname;

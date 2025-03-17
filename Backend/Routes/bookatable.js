@@ -3,27 +3,14 @@ import reservationModel from '../Functions/reservationSchema.js';
 import {validator_bookTime, verifyDishes} from '../Functions/validatorSchema.js';
 // 3rd party
 import Express from 'express';
-import cors from 'cors';
 // import mongoose from 'mongoose';
 
 const bookatable = Express.Router();
 
-const whitelist = ['http://localhost:5000', 
-'https://foodbooking-frontend.vercel.app'];
-
-const corsOpts = {
-  origin: function (origin, callback) {
-	if (whitelist.indexOf(origin) !== -1) {
-	  callback(null, true)
-	} else {
-	  callback(new Error('Request not allowed by CORS'))
-	}
-  }}
-
 let result;
 
-bookatable.options('/new-table', cors(corsOpts))
-bookatable.post('/new-table', cors(corsOpts), async(req, res) => {
+bookatable.options('/new-table')
+bookatable.post('/new-table', async(req, res) => {
 	result = new Object();
 	try {
 		const { fname, lname, email, phone, guests, dishes, smoking, bookDay, bookTime, legalAge } = req.body;
@@ -99,7 +86,7 @@ bookatable.post('/new-table', cors(corsOpts), async(req, res) => {
 	}	
 });
 
-bookatable.get('/search/:booking_id', cors(corsOpts), async(req, res)=>{
+bookatable.get('/search/:booking_id', async(req, res)=>{
 	result = new Object();
 	try {
 	const searchId = req.params.booking_id;
@@ -124,7 +111,7 @@ bookatable.get('/search/:booking_id', cors(corsOpts), async(req, res)=>{
 	
 })
 
-bookatable.get('/allreservation_email/:email', cors(corsOpts), async(req, res)=>{
+bookatable.get('/allreservation_email/:email', async(req, res)=>{
 	result = new Object();
 	try {
 		const client_email = req.params.email;
@@ -148,8 +135,8 @@ bookatable.get('/allreservation_email/:email', cors(corsOpts), async(req, res)=>
 	}
 })
 
-bookatable.options('/new-table-edition/:booking_id', cors(corsOpts))
-bookatable.patch('/new-table-edition/:booking_id', cors(corsOpts), async(req, res) => {
+bookatable.options('/new-table-edition/:booking_id')
+bookatable.patch('/new-table-edition/:booking_id', async(req, res) => {
 	result = new Object();
 	try {
 		// 1 - Get body and params
@@ -278,8 +265,8 @@ bookatable.patch('/new-table-edition/:booking_id', cors(corsOpts), async(req, re
 	}
 });
 
-bookatable.options('/dishes-selected-edition/:booking_id', cors(corsOpts))
-bookatable.patch('/dishes-selected-edition/:booking_id', cors(corsOpts), async(req, res)=>{
+bookatable.options('/dishes-selected-edition/:booking_id')
+bookatable.patch('/dishes-selected-edition/:booking_id', async(req, res)=>{
 	result = new Object();
 	try {
 		
@@ -338,8 +325,8 @@ bookatable.patch('/dishes-selected-edition/:booking_id', cors(corsOpts), async(r
 	}
 })
 
-bookatable.options('/new-table-deletion/:booking_id', cors(corsOpts))
-bookatable.delete('/new-table-deletion/:booking_id', cors(corsOpts), async(req, res) => {
+bookatable.options('/new-table-deletion/:booking_id')
+bookatable.delete('/new-table-deletion/:booking_id', async(req, res) => {
 	result = new Object();
 	try {
 		const bookingId = req.params.booking_id;

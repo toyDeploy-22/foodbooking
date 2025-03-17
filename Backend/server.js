@@ -7,6 +7,7 @@ import bookatable from './Routes/bookatable.js';
 import dishRoute from './Routes/dishesRoutes.js';
 // 3rd party
 import Express from 'express';
+import cors from "cors";
 
 // variables
 const myServer = Express();
@@ -14,7 +15,23 @@ const htmlSuccessPage = join(dirname(fileURLToPath(import.meta.url)), 'htmlSucce
 // destructuring
 const { MY_PORT, MONGO_URL } = process.env;
 
-// const corsOptions = {origin: "*"}
+/*
+
+S E C U R I T Y
+
+const whitelist = ['http://localhost:5000',
+'https://foodbooking-frontend.vercel.app'];
+
+const corsOpts = {
+  origin: function (origin, callback) {
+	if (whitelist.indexOf(origin) > -1) {
+	  callback(null, true)
+	} else {
+	  callback(new Error('Request not allowed by CORS'))
+	}
+  }};
+*/
+
 const routes = [
 {route: "/reservation", path: bookatable}, 
 {route: "/dish", path: dishRoute}, 
@@ -22,9 +39,8 @@ const routes = [
 
 // middlewares
 myServer.use(Express.json());
-// myServer.use(cors(corsOptions));
-
-myServer.use("/", (req, res) => {
+myServer.use(cors());
+myServer.get("/", (req, res) => {
  res.sendFile(htmlSuccessPage)
 });
 
