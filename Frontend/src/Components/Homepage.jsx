@@ -36,7 +36,7 @@ return(
                 <Carousel.Item
                  key={"dish-n" + dish.dish_id}
                  onClick={()=>changePosition(position)}>
-				 <a href={`${FRhost}/dish/id?dishid=${dish.dish_id}`}>
+				 <a href={`${BKhost}/dish/id?dishid=${dish.dish_id}`}>
                 <img className="d-block w-100" 
                 src={[...noLinks].filter((link) => link === dish.dish_id).length === 0 ? `${BKhost}/dish/picture/${dish['dish_link']}.jpg` : Image} 
                 alt={dish.dish_name + " picture"}
