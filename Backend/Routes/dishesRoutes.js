@@ -30,7 +30,7 @@ dishRoute.get("/alldishes", cors(corsOpts), (req, res)=>{
 	}
 })
 
-dishRoute.get('/id', cors(), (req, res)=>{
+dishRoute.get('/id', cors(corsOpts), (req, res)=>{
 	// dish/id?dishid=...
 	try {
 	const dishId = req.query.dishid;
@@ -56,7 +56,7 @@ dishRoute.get('/id', cors(), (req, res)=>{
 })
 
 
-dishRoute.get("/name", cors(), (req, res)=>{
+dishRoute.get("/name", cors(corsOpts), (req, res)=>{
 	// dish/name?dishname=...
 	try {
 	const dishName = req.query.dishname;
