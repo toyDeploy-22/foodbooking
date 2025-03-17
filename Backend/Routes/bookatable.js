@@ -8,7 +8,8 @@ import cors from 'cors';
 
 const bookatable = Express.Router();
 
-const whitelist = ['http://localhost:5000', 'https://foodbooking-frontend.vercel.app'];
+const whitelist = ['http://localhost:5000', 
+'https://foodbooking-frontend.vercel.app'];
 
 const corsOpts = {
   origin: function (origin, callback) {

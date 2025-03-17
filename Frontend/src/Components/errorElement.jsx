@@ -3,6 +3,7 @@ import Badge from 'react-bootstrap/Badge';
 function ErrorElement() {
 return(
     <div className="text-center">
+    <br /><br />
     <h3 className="text-danger fw-bold"><span className="p-2 bg-dark">Something Went Wrong...</span> <Badge pill bg="danger">
         Oops
       </Badge></h3>
