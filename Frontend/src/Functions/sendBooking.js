@@ -182,7 +182,9 @@ try {
                 msg: 'Your request cannot be sent because your email already exist in our database. If you want to cancel your booking, go to "Cancel Booking" section.'}]
                 }
 
-        const finder = await fetch(`http://localhost:5000/reservation/allreservation_email/${firstCheck.resa['email']}`);
+        // const finder = await fetch(`http://localhost:5000/reservation/allreservation_email/${firstCheck.resa['email']}`);
+
+        const finder = await fetch(`https://foodbooking-backend.vercel.app/reservation/allreservation_email/${firstCheck.resa['email']}`);
 
         const findMail = await finder.json();
         
@@ -192,8 +194,10 @@ try {
 
         firstCheck.resa.dishes = arr;
 
-        const url = 'http://localhost:5000/reservation/new-table';
-        
+        // const url = 'http://localhost:5000/reservation/new-table';
+
+        const url = 'https://foodbooking-backend.vercel.app/reservation/new-table'; 
+
         const booker = await fetch(url, { 
                         headers: {"Content-Type": "application/json"}, 
                         method: 'POST', 

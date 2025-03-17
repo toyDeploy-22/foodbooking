@@ -16,6 +16,12 @@ function Homepage({ meals }) {
         setPosition(() => p + 1 > dishes.length - 1 ? 0 : p + 1);
     }
 
+    // const FRhost = "http://localhost:3000";
+    // const BKhost = "http://localhost:5000";
+
+    const FRhost = "https://foodbooking-frontend.vercel.app";
+    const BKhost = "https://foodbooking-backend.vercel.app";
+
 return(
     <Container>
                 <Row className="d-flex justify-content-center">
@@ -30,9 +36,9 @@ return(
                 <Carousel.Item
                  key={"dish-n" + dish.dish_id}
                  onClick={()=>changePosition(position)}>
-				 <a href={"http://localhost:3000/dish/id?dishid=" + dish.dish_id }>
+				 <a href={`${FRhost}/dish/id?dishid=${dish.dish_id}`}>
                 <img className="d-block w-100" 
-                src={[...noLinks].filter((link) => link === dish.dish_id).length === 0 ? "http://localhost:5000/dish/picture/" + dish.dish_link + ".jpg" : Image} 
+                src={[...noLinks].filter((link) => link === dish.dish_id).length === 0 ? `${BKhost}/dish/picture/${dish['dish_link']}.jpg` : Image} 
                 alt={dish.dish_name + " picture"}
                 onError={()=>setNoLinks(new Set([...noLinks, dish.dish_id]))}/>
 				</a>

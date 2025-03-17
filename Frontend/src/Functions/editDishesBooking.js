@@ -21,7 +21,8 @@ async function editDishesBooking(id, dishes) {
         newSignal = new AbortController();
 
         const route = {
-            url: `http://localhost:5000/reservation/dishes-selected-edition/${id}`,
+            // url: `http://localhost:5000/reservation/dishes-selected-edition/${id}`,
+            url: `https://foodbooking-backend.vercel.app/reservation/dishes-selected-edition/${id}`,
             method: 'patch'
         };
             

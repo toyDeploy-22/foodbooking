@@ -90,6 +90,12 @@ const [dishesResult, setDishesResult] = useState({
 const [showDishesResult, setShowDishesResult] = useState(false);
 
 // Variables
+// const BKhost = "http://localhost:5000";
+// const FRhost = "http://localhost:3000";
+
+const BKhost = "https://foodbooking-backend.vercel.app";
+const FRhost = "https://foodbooking-frontend.vercel.app";
+
 const messages = reasons.map((msg)=>msg.msg);
 const noteGuest = '(Note: if you want to change the number of guests, please delete your booking and create a new one).'
 // Variables CSS Styles
@@ -375,7 +381,7 @@ useEffect(()=>{
   const getBooking = async() => {
   try {
   setLoader(true);
-  const bookingFetch = await fetch(`http://localhost:5000/reservation/search/${booking_id}`);
+  const bookingFetch = await fetch(`${BKhost}/reservation/search/${booking_id}`);
 
   if(bookingFetch.status === 404){
     const obj = notFoundError(booking_id)
@@ -994,7 +1000,7 @@ useEffect(()=>{
         </Modal.Footer>
         :
         <Modal.Footer className="justify-content-center">
-          <Button className="fw-bold text-light" variant={deleteResult.code === 200 ? "dark" : "danger"} onClick={deleteResult.code === 200 ? ()=>window.location.href = 'http://localhost:3000/reservation/search' : ()=>setDeletable(false)}>
+          <Button className="fw-bold text-light" variant={deleteResult.code === 200 ? "dark" : "danger"} onClick={deleteResult.code === 200 ? ()=>window.location.href = `${FRhost}/reservation/search` : ()=>setDeletable(false)}>
         Ok
           </Button>
         </Modal.Footer>

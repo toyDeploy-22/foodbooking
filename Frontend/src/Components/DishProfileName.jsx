@@ -17,10 +17,10 @@ function DishProfileName ({ meals }) {
     const [dishSearch, setDishSearch] = useSearchParams(); 
     // useSearchParams does not have initial state because comes from URL
     const [Error, setError] = useState(false);
+    // const host = "http://localhost:5000";
+    const host = "https://foodbooking-backend.vercel.app";
 
     // or const { dishId } = useParams();
-
-//        const url = `http://localhost:5000/dish/id?dish_id=${dishId}`; 
 
 /**
 let dishSelected = meals.filter((dish)=> dish.dish_link.includes(dishSearch.get('dishname').toLowerCase()))[0];
@@ -55,7 +55,7 @@ return (
                <Figure>
                <Figure.Image
                  alt={dishSelected.dish_name}
-                 src={`http://localhost:5000/dish/picture/${dishSelected.dish_link}.jpg`}
+                 src={`${host}/dish/picture/${dishSelected.dish_link}.jpg`}
                />
                <Figure.Caption>
                <p className="bg-secondary text-light fst-italic">{dishSelected.dish_description}</p>

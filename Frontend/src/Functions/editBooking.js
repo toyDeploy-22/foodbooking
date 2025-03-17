@@ -160,7 +160,9 @@ const editBooking = async(editable, editDish) => {
         return result
         } else {
         
-    const url = `http://localhost:5000/reservation/new-table-edition/${secondCheck.resa.booking_id}`;
+    // const url = `http://localhost:5000/reservation/new-table-edition/${secondCheck.resa.booking_id}`;
+
+    const url = `https://foodbooking-backend.vercel.app/reservation/new-table-edition/${secondCheck.resa.booking_id}`;
 
     const launcher = await fetch(url, {
         method: 'PATCH',

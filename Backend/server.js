@@ -5,7 +5,6 @@ import { fileURLToPath } from 'url';
 import { mongoConnect, successMsg, failureMsg } from './Functions/mongoConnect.js';
 import bookatable from './Routes/bookatable.js';
 import dishRoute from './Routes/dishesRoutes.js';
-// import htmlSuccessMsg from './htmlSuccessString.js';
 // 3rd party
 import Express from 'express';
 
@@ -27,7 +26,8 @@ myServer.use(Express.json());
 
 myServer.use("/", (req, res) => {
  res.sendFile(htmlSuccessPage)
-})
+});
+
 routes.forEach((r) => myServer.use(r.route, r.path));
 
 // do

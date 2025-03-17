@@ -3,7 +3,9 @@ const result = {};
 
 const deleteBooking = async(bk_id) => {
   try {
-    const url = `http://localhost:5000/reservation/new-table-deletion/${bk_id}`;
+    // const url = `http://localhost:5000/reservation/new-table-deletion/${bk_id}`;
+
+    const url = `https://foodbooking-backend.vercel.app/reservation/new-table-deletion/${bk_id}`;
 
     const deletable = await fetch(url, {
       method: 'DELETE',
