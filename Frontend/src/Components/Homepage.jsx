@@ -38,7 +38,7 @@ return(
                  onClick={()=>changePosition(position)}>
 				 <a href={`${FRhost}/dish/id?dishid=${dish.dish_id}`}>
                 <img className="d-block w-100" 
-                src={[...noLinks].filter((link) => link === dish.dish_id).length === 0 ? dish.img : Image} 
+                src={[...noLinks].filter((link) => link === dish.dish_id).length === 0 ? dish.dish_img : Image} 
                 alt={dish.dish_name + " picture"}
                 onError={()=>setNoLinks(new Set([...noLinks, dish.dish_id]))}/>
 				</a>
