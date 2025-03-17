@@ -3,6 +3,7 @@
 import { mongoConnect, successMsg, failureMsg } from './Functions/mongoConnect.js';
 import bookatable from './Routes/bookatable.js';
 import dishRoute from './Routes/dishesRoutes.js';
+import htmlSuccessMsg from './htmlSuccessString.js';
 // 3rd party
 import Express from 'express';
 
@@ -10,8 +11,7 @@ import Express from 'express';
 const myServer = Express();
 // destructuring
 const { MY_PORT, MONGO_URL } = process.env;
-const port = process.env.MY_PORT;
-const mongoUrl = process.env.MONGO_URL;
+
 // const corsOptions = {origin: "*"}
 const routes = [
 {route: "/reservation", path: bookatable}, 
@@ -22,16 +22,20 @@ const routes = [
 myServer.use(Express.json());
 // myServer.use(cors(corsOptions));
 
+myServer.use("/", (req, res) => {
+ res.send(htmlSuccessMsg)
+})
 routes.forEach((r) => myServer.use(r.route, r.path));
 
 // do
 
-myServer.listen(port, ()=>{
-	const connection = mongoConnect(mongoUrl);
-	console.log("Step 1: Server connection success on port " + port + " !");
+myServer.listen(MY_PORT, ()=>{
+	const connection = mongoConnect(MONGO_URL);
+	console.log("Step 1: Server connection success on port " + MY_PORT + " !");
 	connection.then((data)=>{ 
 		console.log("Step 2: ", successMsg) 
-	}).catch((err)=>console.error(JSON.stringify(failureMsg(err))))
+	})
+	.catch((err)=>console.error(JSON.stringify(failureMsg(err))))
 	});
 
 myServer.on("error", (err)=>{
