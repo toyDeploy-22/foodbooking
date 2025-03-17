@@ -1,14 +1,17 @@
 // core
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
 // local
 import { mongoConnect, successMsg, failureMsg } from './Functions/mongoConnect.js';
 import bookatable from './Routes/bookatable.js';
 import dishRoute from './Routes/dishesRoutes.js';
-import htmlSuccessMsg from './htmlSuccessString.js';
+// import htmlSuccessMsg from './htmlSuccessString.js';
 // 3rd party
 import Express from 'express';
 
 // variables
 const myServer = Express();
+const htmlSuccessPage = join(dirname(fileURLToPath(import.meta.url)), 'htmlSuccessPage.html');
 // destructuring
 const { MY_PORT, MONGO_URL } = process.env;
 
@@ -23,7 +26,7 @@ myServer.use(Express.json());
 // myServer.use(cors(corsOptions));
 
 myServer.use("/", (req, res) => {
- res.send(htmlSuccessMsg)
+ res.sendFile(htmlSuccessPage)
 })
 routes.forEach((r) => myServer.use(r.route, r.path));
 
