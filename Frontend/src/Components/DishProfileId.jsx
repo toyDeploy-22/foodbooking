@@ -54,10 +54,12 @@ return (
             {
             !loader &&
              dishSelected.dish_id ?
-               <Figure>
+               <Figure className="w-100">
                <Figure.Image 
+                 className={!noLink ? "w-75" : "w-50"}
+                 rounded={!noLink ? false : true}
                  alt={dishSelected.dish_name}
-                 src={ !noLink ? `${host}${dishSelected.dish_file}` : Image }
+                 src={ !noLink ? `${host}/${dishSelected.dish_file}` : Image }
                  onError={() => setNoLink(true)}
                />
                <Figure.Caption>
