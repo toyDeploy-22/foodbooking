@@ -4,6 +4,7 @@ const dishSchema = {
         "dish_id": "",
         "dish_name": "",
 		"dish_link": "",
+        "dish_file": "",
         "dish_description": "",
 		"dish_ingredients": [],
         "dish_img": "",

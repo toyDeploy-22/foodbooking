@@ -6,13 +6,13 @@ import Figure from 'react-bootstrap/Figure';
 import Stack from 'react-bootstrap/Stack';
 import LoadingElement from './loadingElement.jsx';
 import ErrorElement from "./errorElement";
-import dishSchena from '../Functions/dishSchema';
+import dishSchema from '../Functions/dishSchema';
 import Image from "../Cover/No_Picture.jpg";
 
 function DishProfileName ({ meals }) {
 
     const [dishSelected, setDishSelected] = useState({
-        ...dishSchena
+        ...dishSchema
     });
     const [loader, setLoader] = useState(false);
     const [dishSearch, setDishSearch] = useSearchParams(); 

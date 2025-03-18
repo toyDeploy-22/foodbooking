@@ -6,18 +6,18 @@ import Figure from 'react-bootstrap/Figure';
 import Stack from 'react-bootstrap/Stack';
 import LoadingElement from "./loadingElement.jsx";
 import ErrorElement from "./errorElement";
-import dishSchena from '../Functions/dishSchema';
+import dishSchema from '../Functions/dishSchema';
 import Image from "../Cover/No_Picture.jpg";
 
 function DishProfileId ({ meals }) {
 
     const [dishSelected, setDishSelected] = useState({
-        ...dishSchena
+        ...dishSchema
     });
     const [loader, setLoader] = useState(false);
     const [dishSearch, setDishSearch] = useSearchParams(); 
     // useSearchParams does not have initial state because comes from URL
-    const [noLink, setNoLink] = useState(false);
+    
     const [Error, setError] = useState(false);
     // const host = "http://localhost:5000";
     const host = "https://foodbooking-backend.vercel.app";
@@ -57,8 +57,8 @@ return (
                <Figure>
                <Figure.Image 
                  alt={dishSelected.dish_name}
-                 src={ !noLink? dishSelected.dish_file : Image}
-                 onError={() => setNoLink(true)}
+                 src={ dishSelected.dish_file }
+                 onError={(e) => e.target.src = Image}
                />
                <Figure.Caption>
                <p className="bg-secondary py-2 text-light h6 fst-italic">{dishSelected.dish_description}</p>
