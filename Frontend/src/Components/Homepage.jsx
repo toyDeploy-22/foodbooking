@@ -38,7 +38,7 @@ return(
                  onClick={()=>changePosition(position)}>
 				 <a href={`${FRhost}/dish/id?dishid=${dish.dish_id}`}>
                 <img className="d-block w-100"
-                src={[...noLinks].indexOf((link) => link === dish.dish_id).length === -1 ? "https://foodbooking-backend.vercel.app/" + dish.dish_file : Image} 
+                src={[...noLinks].indexOf(dish_id) === -1 ? "https://foodbooking-backend.vercel.app/" + dish.dish_file : Image} 
                 alt={dish.dish_name + " picture"}
                 onError={()=>setNoLinks(new Set([...noLinks, dish.dish_id]))} />
 				</a>
