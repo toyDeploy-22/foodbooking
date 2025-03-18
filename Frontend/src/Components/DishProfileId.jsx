@@ -17,7 +17,7 @@ function DishProfileId ({ meals }) {
     const [loader, setLoader] = useState(false);
     const [dishSearch, setDishSearch] = useSearchParams(); 
     // useSearchParams does not have initial state because comes from URL
-    
+    const [noLink, setNoLink] =  useState(false);
     const [Error, setError] = useState(false);
     // const host = "http://localhost:5000";
     const host = "https://foodbooking-backend.vercel.app";
@@ -57,8 +57,8 @@ return (
                <Figure>
                <Figure.Image 
                  alt={dishSelected.dish_name}
-                 src={ dishSelected.dish_file }
-                 onError={(e) => e.target.src = Image}
+                 src={ !noLink ? `${host}${dishSelected.dish_file}` : Image }
+                 onError={() => setNoLink(true)}
                />
                <Figure.Caption>
                <p className="bg-secondary py-2 text-light h6 fst-italic">{dishSelected.dish_description}</p>
