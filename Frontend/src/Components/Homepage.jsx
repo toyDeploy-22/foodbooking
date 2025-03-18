@@ -38,7 +38,7 @@ return(
                  onClick={()=>changePosition(position)}>
 				 <a href={`${FRhost}/dish/id?dishid=${dish.dish_id}`}>
                 <img className="d-block w-100" 
-                src={dish.dish_img}
+                src={"https://foodbooking-backend.vercel.app/" + dish.dish_file}
                 alt={dish.dish_name + " picture"}
                 />
 				</a>
