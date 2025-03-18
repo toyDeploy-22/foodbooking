@@ -37,10 +37,10 @@ return(
                  key={"dish-n" + dish.dish_id}
                  onClick={()=>changePosition(position)}>
 				 <a href={`${FRhost}/dish/id?dishid=${dish.dish_id}`}>
-                <img className="d-block w-100" 
-                src={"https://foodbooking-backend.vercel.app/" + dish.dish_file}
+                <img className="d-block w-100"
+                src={[...noLinks].indexOf((link) => link === dish.dish_id).length === -1 ? "https://foodbooking-backend.vercel.app/" + dish.dish_file : Image} 
                 alt={dish.dish_name + " picture"}
-                />
+                onError={()=>setNoLinks(new Set([...noLinks, dish.dish_id]))} />
 				</a>
                 <Carousel.Caption>
                 <h3 className='text-center'><span className='bg-dark p-1'>{dish.dish_name}</span></h3>
