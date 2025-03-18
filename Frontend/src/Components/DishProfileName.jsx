@@ -54,10 +54,12 @@ return (
             {
             !loader &&
              dishSelected.dish_id ?
-               <Figure>
-               <Figure.Image
+               <Figure className="w-100">
+               <Figure.Image 
+                 className={!noLink ? "w-75" : "w-50"}
+                 rounded={!noLink ? false : true}
                  alt={dishSelected.dish_name}
-                 src={ !noLink? dishSelected.dish_file : Image}
+                 src={ !noLink ? `${host}/${dishSelected.dish_file}` : Image }
                  onError={() => setNoLink(true)}
                />
                <Figure.Caption>
@@ -75,7 +77,7 @@ return (
                 </div>
                </ul>
                <br />
-               <h5 className="bg-dark text-light p-2">{dishSelected.dish_price}{dishSelected.dish_symbol}</h5>
+               <h5 className="bg-dark text-light p-2">{dishSelected.dish_price.toFixed(2)}{dishSelected.dish_symbol}</h5>
                </Figure.Caption>
              </Figure>
              :

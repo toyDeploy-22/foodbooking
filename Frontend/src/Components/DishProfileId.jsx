@@ -78,7 +78,7 @@ return (
                 </div>
                </ul>
                <br />
-               <h4 className="bg-dark text-light display-4 p-2" style={{width: '60%', borderRadius: '2px 15px', margin: 'auto'}}>{dishSelected.dish_price}{dishSelected.dish_symbol}</h4>
+               <h4 className="bg-dark text-light display-4 p-2" style={{width: '60%', borderRadius: '2px 15px', margin: 'auto'}}>{dishSelected.dish_price.toFixed(2)}{dishSelected.dish_symbol}</h4>
                </Figure.Caption>
              </Figure>
              :
