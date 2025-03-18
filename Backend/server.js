@@ -40,7 +40,7 @@ const routes = [
 // middlewares
 myServer.use(Express.json());
 myServer.use(cors());
-myServer.use(Express.static("/dish_images", join(dirname(fileURLToPath(import.meta.url)), "dishes_Pictures")))
+myServer.use(Express.static("/dish_images", join(dirname(fileURLToPath(import.meta.url)), "Src", "dishes_Pictures")))
 myServer.get("/", (req, res) => {
  res.sendFile(htmlSuccessPage)
 });
