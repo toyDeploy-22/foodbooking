@@ -3,9 +3,11 @@ import reservationModel from '../Functions/reservationSchema.js';
 import {validator_bookTime, verifyDishes} from '../Functions/validatorSchema.js';
 // 3rd party
 import Express from 'express';
+import cors from "cors";
 // import mongoose from 'mongoose';
 
 const bookatable = Express.Router();
+bookatable.use(cors());
 
 let result;
 

@@ -34,8 +34,9 @@ const corsOpts = {
 
 const routes = [
 {route: "/reservation", path: bookatable}, 
-{route: "/dish", path: dishRoute}, 
-{route: "/dish/picture", path: Express.static('Src/dishes_Pictures', {extensions: ['jpeg', 'jpg', 'png']})}];
+{route: "/dish", path: dishRoute} 
+// ,{route: "/dish/picture", path: Express.static('Src/dishes_Pictures', {extensions: ['jpeg', 'jpg', 'png']})}
+];
 
 // middlewares
 myServer.use(Express.json());
