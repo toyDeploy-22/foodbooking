@@ -88,6 +88,7 @@ bookatable.post('/new-table', async(req, res) => {
 	}	
 });
 
+bookatable.options('/search/:booking_id')
 bookatable.get('/search/:booking_id', async(req, res)=>{
 	result = new Object();
 	try {
