@@ -13,7 +13,8 @@ import cors from "cors";
 const myServer = Express();
 const htmlSuccessPage = join(dirname(fileURLToPath(import.meta.url)), 'htmlSuccessPage.html');
 // destructuring
-const { MY_PORT, MONGO_URI } = process.env;
+const { MY_PORT, MONGO_URI, MONGO_URI_VERCEL } = process.env;
+// MONGO_URI for testing purpose
 
 /*
 
@@ -51,10 +52,12 @@ routes.forEach((r) => myServer.use(r.route, r.path));
 // do
 
 myServer.listen(MY_PORT, ()=>{
-	const connection = mongoConnect(MONGO_URI);
+	// prefer createConnection() if the URI is custom:
+	// const connection = mongoConnect(MONGO_URI);
+	const connection = mongoConnect(MONGO_URI_VERCEL);
 	console.log("Step 1: Server connection success on port " + MY_PORT + " !");
 	connection.then((data)=>{ 
-		console.log("Step 2: ", successMsg) 
+		console.log("Step 2: ", successMsg)
 	})
 	.catch((err)=>console.error(JSON.stringify(failureMsg(err))))
 	});
