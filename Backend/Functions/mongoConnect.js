@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
 
 function mongoConnect(url) { 
-	// return mongoose.connect(url)
-	return mongoose.createConnection(url).asPromise()
+	const opts = {dbName: 'restaurant'};
+	const conn = mongoose.connect(url, opts)
+	return conn
 }
 
 const successMsg = {
