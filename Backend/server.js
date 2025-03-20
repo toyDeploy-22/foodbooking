@@ -44,7 +44,17 @@ myServer.use(Express.json());
 myServer.use(cors());
 myServer.use(Express.static(join(dirname(fileURLToPath(import.meta.url)), "Src", "dishes_Pictures")));
 myServer.get("/", (req, res) => {
- res.sendFile(htmlSuccessPage)
+	const user = {};
+	const details = mongoConnect(MONGO_URI_VERCEL);
+	
+	details.then((data) => {
+		user.host = data.host;
+		user.database = data.database;
+		console.log(user) })
+		.then(() => res.sendFile(htmlSuccessPage))
+		.catch((err) => { 
+			console.error(err);
+			res.status(500).send("Ooops, something wrong occurs. Please open again this page. Contact your administrator if you see again this page.")})
 });
 
 routes.forEach((r) => myServer.use(r.route, r.path));
