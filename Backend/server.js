@@ -44,13 +44,13 @@ myServer.use(Express.json());
 myServer.use(cors());
 myServer.use(Express.static(join(dirname(fileURLToPath(import.meta.url)), "Src", "dishes_Pictures")));
 myServer.get("/", (req, res) => {
-	const user = {};
 	const details = mongoConnect(MONGO_URI_VERCEL);
 	
 	details.then((data) => {
-		user.host = data.host;
-		user.database = data.database;
-		console.log(user) })
+		res.setHeader('db-name', 'MongoDB');
+		res.setHeader('db-Host', data.host);
+		res.setHeader('db-Name', data.database)
+		})
 		.then(() => res.sendFile(htmlSuccessPage))
 		.catch((err) => { 
 			console.error(err);
