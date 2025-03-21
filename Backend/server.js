@@ -50,11 +50,11 @@ myServer.get("/", (req, res) => {
 		res.setHeader('db-Service', 'MongoDB');
 		res.setHeader('db-Host', details.host);
 		res.setHeader('db-Name', details.database)
-		})
-		.then(() => res.sendFile(htmlSuccessPage))
+		}).res.json(details.connection)
+		//.then(() => res.sendFile(htmlSuccessPage))
 		.catch((err) => { 
 			console.error(err);
-			res.status(500).json(details.connection)
+			res.status(500).json(err)
 			/*
 			res.status(500).send("Ooops, something wrong occurs. Please open again this page. Contact your administrator if you see again this page.")*/
 			})
