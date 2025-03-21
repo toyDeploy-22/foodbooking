@@ -52,7 +52,7 @@ myServer.get("/", (req, res) => {
 		res.setHeader('db-Host', details.host);
 		res.setHeader('db-Name', details.database)
 		})*/
-		.then(() => res.json(details.connection))
+		.then((data) => res.json(data.connection))
 		//.then(() => res.sendFile(htmlSuccessPage))
 		.catch((err) => { 
 			console.error(err);
