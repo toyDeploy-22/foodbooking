@@ -48,8 +48,8 @@ myServer.get("/", (req, res) => {
 	
 	details.then((data) => {
 		res.setHeader('db-Service', 'MongoDB');
-		res.setHeader('db-Host', data.hostname);
-		res.setHeader('db-Name', data.database)
+		res.setHeader('db-Host', details.host);
+		res.setHeader('db-Name', details.database)
 		})
 		.then(() => res.sendFile(htmlSuccessPage))
 		.catch((err) => { 
