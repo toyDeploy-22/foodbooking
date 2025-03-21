@@ -48,7 +48,7 @@ myServer.get("/", (req, res) => {
 	
 	details.then((data) => {
 		res.setHeader('db-Service', 'MongoDB');
-		res.setHeader('db-Host', data.host);
+		res.setHeader('db-Host', data.hostname);
 		res.setHeader('db-Name', data.database)
 		})
 		.then(() => res.sendFile(htmlSuccessPage))
