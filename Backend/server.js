@@ -46,11 +46,13 @@ myServer.use(Express.static(join(dirname(fileURLToPath(import.meta.url)), "Src",
 myServer.get("/", (req, res) => {
 	const details = mongoConnect(MONGO_URI_VERCEL);
 	
-	details.then((data) => {
+	details
+	/*.then((data) => {
 		res.setHeader('db-Service', 'MongoDB');
 		res.setHeader('db-Host', details.host);
 		res.setHeader('db-Name', details.database)
-		}).then(() => res.json(details.connection))
+		})*/
+		.then(() => res.json(details.connection))
 		//.then(() => res.sendFile(htmlSuccessPage))
 		.catch((err) => { 
 			console.error(err);
