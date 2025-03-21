@@ -50,7 +50,7 @@ myServer.get("/", (req, res) => {
 		res.setHeader('db-Service', 'MongoDB');
 		res.setHeader('db-Host', details.host);
 		res.setHeader('db-Name', details.database)
-		}).res.json(details.connection)
+		}).then(() => res.json(details.connection))
 		//.then(() => res.sendFile(htmlSuccessPage))
 		.catch((err) => { 
 			console.error(err);
