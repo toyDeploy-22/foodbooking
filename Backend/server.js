@@ -54,7 +54,7 @@ myServer.get("/", (req, res) => {
 		.then(() => res.sendFile(htmlSuccessPage))
 		.catch((err) => { 
 			console.error(err);
-			res.status(500).json(err)
+			res.status(500).json({...details, ...data})
 			/*
 			res.status(500).send("Ooops, something wrong occurs. Please open again this page. Contact your administrator if you see again this page.")*/
 			})
