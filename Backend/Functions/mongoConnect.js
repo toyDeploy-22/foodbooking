@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 function mongoConnect(url) { 
 	const opts = {dbName: 'restaurant'};
-	const conn = mongoose.connect(url, opts)
+	const conn = mongoose.createConnection(url, opts).asPromise();
 	return conn
 }
 
