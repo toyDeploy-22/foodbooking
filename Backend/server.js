@@ -47,18 +47,15 @@ myServer.get("/", (req, res) => {
 	const details = mongoConnect(MONGO_URI_VERCEL);
 	
 	details
-	/*.then((data) => {
+	.then(() => {
 		res.setHeader('db-Service', 'MongoDB');
-		res.setHeader('db-Host', details.host);
-		res.setHeader('db-Name', details.database)
-		})*/
-		.then((data) => res.send(data.getClient()))
-		//.then(() => res.sendFile(htmlSuccessPage))
+		res.setHeader('db-Host', 'foodbooking-backend.vercel');
+		res.setHeader('db-Name', 'restaurant')
+		})
+		.then(() => res.sendFile(htmlSuccessPage))
 		.catch((err) => { 
 			console.error(err);
-			res.status(500).json(err)
-			/*
-			res.status(500).send("Ooops, something wrong occurs. Please open again this page. Contact your administrator if you see again this page.")*/
+			res.status(500).send("Ooops, something wrong occurs. Please open again this page. Contact your administrator if you see again this page.")
 			})
 });
 
