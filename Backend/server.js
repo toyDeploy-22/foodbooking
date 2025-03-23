@@ -47,10 +47,12 @@ myServer.get("/", (req, res) => {
 	const details = mongoConnect(MONGO_URI_VERCEL);
 	
 	details
-	.then(() => {
+	.then((data) => {
+		const dbData =  data.connections[0];
 		res.setHeader('db-Service', 'MongoDB');
-		res.setHeader('db-Host', 'foodbooking-backend.vercel');
-		res.setHeader('db-Name', 'restaurant')
+		res.setHeader('db-Name',dbData.db.s.namespace.db);
+		res.setHeader('db-Host', dbData.host.substring(27));
+		res.setHeader(db-Port, dbData.port)
 		})
 		.then(() => res.sendFile(htmlSuccessPage))
 		.catch((err) => { 
