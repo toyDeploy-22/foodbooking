@@ -2,7 +2,7 @@
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 // local
-import { mongoConnect, successMsg, failureMsg } from './Functions/mongoConnect.js';
+import { mongoConnect, successMsg, failureMsg, mongoStats } from './Functions/mongoConnect.js';
 import bookatable from './Routes/bookatable.js';
 import dishRoute from './Routes/dishesRoutes.js';
 // 3rd party
@@ -48,11 +48,11 @@ myServer.get("/", (req, res) => {
 	
 	details
 	.then((data) => {
-		const dbData =  data.connections[0];
-		res.setHeader('db-Service', 'MongoDB');
-		res.setHeader('db-Name',dbData.db.s.namespace.db);
-		res.setHeader('db-Host', dbData.host.substring(27));
-		res.setHeader(db-Port, dbData.port)
+		const dbData = data.hasOwnProperty(connections) ? mongoStats({notFound: ''}) : mongoStats(data.connections[0]);
+		res.setHeader('db-Service', dbData.dbService);
+		res.setHeader('db-Name',dbData.dbName);
+		res.setHeader('db-Host', dbData.dbHost);
+		res.setHeader('db-Port', dbData.dbPort)
 		})
 		.then(() => res.sendFile(htmlSuccessPage))
 		.catch((err) => { 

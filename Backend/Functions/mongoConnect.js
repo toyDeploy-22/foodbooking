@@ -21,4 +21,29 @@ const failureMsg = (error) => {
 		}
 }
 
-export { mongoConnect, successMsg, failureMsg };
+const mongoStats = (connection) => {
+	const foundData = {dbService: 'MongoDB'};
+	const unknownData = {
+		dbName: 'Db Name unknown',
+		dbHost: connection.host.substring(27) || 'Db Host unknown',
+		dbPort: connection.port || 'Port unknown'
+		};
+	const resultData = {};
+
+const statement = connection.hasOwnProperty('db') && connection.db.hasOwnProperty('s') && connection.db['s'].hasOwnProperty('namespace') && connection.db.s['namespace'].hasOwnProperty('db');
+
+if(statement) {
+	const finalData = {
+		dbName: dbData.db.s.namespace.db || 'Db Name Not Found',
+		dbHost: connection.host.substring(27) || 'Db Host Not Found',
+		dbPort: connection.port || 'Port Not Found'
+		};
+	Object.assign(resultData, foundData, finalData) 
+} else {
+	Object.assign(resultData, foundData, unknownData)
+	}
+	return resultData
+}
+
+
+export { mongoConnect, successMsg, failureMsg, mongoStats };

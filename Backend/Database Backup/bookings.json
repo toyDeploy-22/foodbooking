@@ -1,0 +1,469 @@
+[{
+  "_id": {
+    "$oid": "66672839b9606a96d8077f9e"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": true,
+  "bookDay": "2024-12-03",
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "createdAt": {
+    "$date": "2024-06-10T16:22:17.760Z"
+  },
+  "updatedAt": {
+    "$date": "2025-01-10T19:39:33.492Z"
+  },
+  "__v": 0,
+  "dishes_selected": [
+    {
+      "id": "D003",
+      "name": "Vegetables Fresh Salad",
+      "_id": {
+        "$oid": "6781777520c95a68120afeb6"
+      }
+    },
+    {
+      "id": "D003",
+      "name": "Vegetables Fresh Salad",
+      "_id": {
+        "$oid": "6781777520c95a68120afeb7"
+      }
+    },
+    {
+      "id": "D003",
+      "name": "Vegetables Fresh Salad",
+      "_id": {
+        "$oid": "6781777520c95a68120afeb8"
+      }
+    }
+  ],
+  "booking_id": "B674e2ee20-14"
+},
+{
+  "_id": {
+    "$oid": "66673147ba3017de99e29044"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": false,
+  "bookDay": {
+    "$date": "2024-06-11T00:00:00Z"
+  },
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "createdAt": {
+    "$date": "2024-06-10T17:00:55.204Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-10T17:00:55.204Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666732b77f46f4e100cf01d6"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": true,
+  "bookDay": "2024-06-11",
+  "bookTime": "14:30",
+  "extra": "Hello There",
+  "legalAge": true,
+  "createdAt": {
+    "$date": "2024-06-10T17:07:03.739Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-10T17:07:03.739Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6667345aa9311351294759a4"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": true,
+  "bookDay": "2024-06-11",
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "createdAt": {
+    "$date": "2024-06-10T17:14:02.620Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-10T17:14:02.620Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666736ce6f2003e77c170dd7"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": true,
+  "bookDay": "2024-06-11",
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "createdAt": {
+    "$date": "2024-06-10T17:24:30.812Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-10T17:24:30.812Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666738460c7c619a0d4ff3fb"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": true,
+  "bookDay": "2024-06-11",
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "createdAt": {
+    "$date": "2024-06-10T17:30:46.423Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-10T17:30:46.423Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666750f6c10e88f4d9ed97eb"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": true,
+  "bookDay": "2024-06-11",
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "booking_id": "B666750-12",
+  "createdAt": {
+    "$date": "2024-06-10T19:16:06.712Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-10T19:16:07.220Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6667524bc10e88f4d9ed97f0"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": true,
+  "bookDay": "2024-06-11",
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "booking_id": "B666752-13",
+  "createdAt": {
+    "$date": "2024-06-10T19:21:47.906Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-10T19:21:48.109Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666752c4c10e88f4d9ed97f5"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": true,
+  "bookDay": "2024-06-11",
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "booking_id": "B666752-14",
+  "createdAt": {
+    "$date": "2024-06-10T19:23:48.227Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-10T19:23:48.428Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66675341c10e88f4d9ed97fa"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": true,
+  "bookDay": "2024-11-11",
+  "bookTime": "18:35",
+  "extra": "Hello Hapayyy World",
+  "legalAge": true,
+  "booking_id": "B666753-15",
+  "createdAt": {
+    "$date": "2024-06-10T19:25:53.986Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-15T17:38:01.805Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667b3b9e01cce963d6d5e5cf"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "smoking": true,
+  "bookDay": "2024-06-11",
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "booking_id": "B666750-11",
+  "createdAt": "2024-06-24T21:18:04.519+00:00",
+  "updatedAt": "2024-06-24T23:18:04.519+00:00"
+},
+{
+  "_id": {
+    "$oid": "673ba6a1c9c2dbfc4d7e0cd2"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test2@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 0,
+  "smoking": true,
+  "bookDay": "2024-11-19",
+  "bookTime": "11:00",
+  "legalAge": true,
+  "booking_id": "B673ba6a1c-12",
+  "createdAt": {
+    "$date": "2024-11-18T20:42:09.122Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-18T20:42:09.610Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e2ee205bf1d2a2df2c907"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test3@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 2,
+  "dishes_selected": [
+    {
+      "id": "D001",
+      "name": "Dessert Salad",
+      "_id": {
+        "$oid": "674e2ee205bf1d2a2df2c908"
+      }
+    },
+    {
+      "id": "D002",
+      "name": "Skew Mix",
+      "_id": {
+        "$oid": "674e2ee205bf1d2a2df2c909"
+      }
+    },
+    {
+      "id": "D002",
+      "name": "Skew Mix",
+      "_id": {
+        "$oid": "674e2ee205bf1d2a2df2c90a"
+      }
+    }
+  ],
+  "smoking": true,
+  "bookDay": "2024-12-03",
+  "bookTime": "11:00",
+  "extra": "test with dishes",
+  "legalAge": true,
+  "booking_id": "B674e2ee20-13",
+  "createdAt": {
+    "$date": "2024-12-02T22:04:19.007Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-02T22:04:19.095Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "678569dc8c7dda8ded571e36"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 0,
+  "smoking": true,
+  "bookDay": "2024-12-01",
+  "bookTime": "14:30",
+  "extra": "Hello World",
+  "legalAge": true,
+  "booking_id": "A429f2fe55-15",
+  "dishes_selected": [
+    {
+      "id": "D003",
+      "name": "Vegetables Fresh Salad",
+      "_id": {
+        "$oid": "678596fa46985e2f49bae32b"
+      }
+    }
+  ],
+  "createdAt": "2024-07-11T16:22:17.760+00:00",
+  "updatedAt": {
+    "$date": "2025-01-13T22:43:06.028Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6792bf8fba09cf7101d26b05"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test4@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 3,
+  "dishes_selected": [
+    {
+      "id": "D001",
+      "name": "Dessert Salad",
+      "_id": {
+        "$oid": "6792bf8fba09cf7101d26b06"
+      }
+    },
+    {
+      "id": "D002",
+      "name": "Skew Mix",
+      "_id": {
+        "$oid": "6792bf8fba09cf7101d26b07"
+      }
+    },
+    {
+      "id": "D003",
+      "name": "Vegetables Fresh Salad",
+      "_id": {
+        "$oid": "6792bf8fba09cf7101d26b08"
+      }
+    },
+    {
+      "id": "D002",
+      "name": "Skew Mix",
+      "_id": {
+        "$oid": "6792bf8fba09cf7101d26b09"
+      }
+    }
+  ],
+  "smoking": true,
+  "bookDay": "2025-01-24",
+  "bookTime": "11:00",
+  "legalAge": true,
+  "booking_id": "B6792bf8fb-14",
+  "createdAt": {
+    "$date": "2025-01-23T22:15:43.889Z"
+  },
+  "updatedAt": {
+    "$date": "2025-01-23T22:15:43.953Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6792c5d245c770314e0dc92f"
+  },
+  "first_name": "Tester",
+  "last_name": "Testman",
+  "email": "test5@hotmail.com",
+  "phone": "+1455588855888",
+  "guests": 3,
+  "dishes_selected": [
+    {
+      "id": "D002",
+      "name": "Skew Mix",
+      "_id": {
+        "$oid": "6792c5d245c770314e0dc930"
+      }
+    },
+    {
+      "id": "D001",
+      "name": "Dessert Salad",
+      "_id": {
+        "$oid": "6792c5d245c770314e0dc931"
+      }
+    },
+    {
+      "id": "D003",
+      "name": "Vegetables Fresh Salad",
+      "_id": {
+        "$oid": "6792c5d245c770314e0dc932"
+      }
+    },
+    {
+      "id": "D002",
+      "name": "Skew Mix",
+      "_id": {
+        "$oid": "6792c5d245c770314e0dc933"
+      }
+    }
+  ],
+  "smoking": true,
+  "bookDay": "2025-01-24",
+  "bookTime": "11:00",
+  "legalAge": true,
+  "booking_id": "B6792c5d24-15",
+  "createdAt": {
+    "$date": "2025-01-23T22:42:27.008Z"
+  },
+  "updatedAt": {
+    "$date": "2025-01-23T22:42:27.108Z"
+  },
+  "__v": 0
+}]

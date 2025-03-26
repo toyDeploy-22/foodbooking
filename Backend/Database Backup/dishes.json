@@ -1,0 +1,51 @@
+[{
+  "_id": {
+    "$oid": "6751839aaa14a516ec6e48fc"
+  },
+  "id": "02",
+  "dish_id": "D002",
+  "dish_name": "Skew Mix",
+  "dish_link": "skew-mix",
+  "dish_description": "Our tasty and handmade grilled skewered chicken with sea food combo.",
+  "dish_ingredients": {
+    "forId": "D002"
+  },
+  "dish_price": 15,
+  "dish_devise": "euros",
+  "dish_symbol": "€",
+  "dish_averageReview": ""
+},
+{
+  "_id": {
+    "$oid": "6751839aaa14a516ec6e48fd"
+  },
+  "id": "03",
+  "dish_id": "D003",
+  "dish_name": "Vegetables Fresh Salad",
+  "dish_link": "vegetables-fresh-salad",
+  "dish_description": "A nutritive fresh salad to maintain weight loss.",
+  "dish_ingredients": {
+    "forId": "D003"
+  },
+  "dish_price": 8,
+  "dish_devise": "euros",
+  "dish_symbol": "€",
+  "dish_averageReview": ""
+},
+{
+  "_id": {
+    "$oid": "6751839aaa14a516ec6e48fb"
+  },
+  "id": "01",
+  "dish_id": "D001",
+  "dish_name": "Dessert Salad",
+  "dish_link": "dessert-salad",
+  "dish_description": "A succulent, sweet and healthy fresh dessert to charge energy!",
+  "dish_ingredients": {
+    "forId": "D001"
+  },
+  "dish_price": 7.5,
+  "dish_devise": "euros",
+  "dish_symbol": "€",
+  "dish_averageReview": ""
+}]
