@@ -25,8 +25,8 @@ const mongoStats = (connection) => {
 	const foundData = {dbService: 'MongoDB'};
 	const unknownData = {
 		dbName: 'Db Name unknown',
-		dbHost: connection.host.substring(27) || 'Db Host unknown',
-		dbPort: connection.port || 'Port unknown'
+		dbHost: 'Db Host unknown',
+		dbPort: 'Port unknown'
 		};
 	const resultData = {};
 
