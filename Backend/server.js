@@ -48,7 +48,11 @@ myServer.get("/", (req, res) => {
 	
 	details
 	.then((data) => {
+		/*
 		const dbData = data.hasOwnProperty(connections) ? mongoStats({notFound: ''}) : mongoStats(data.connections[0]);
+		*/
+		const dbData = {...mongoStats};
+		
 		res.setHeader('db-Service', dbData.dbService);
 		res.setHeader('db-Name',dbData.dbName);
 		res.setHeader('db-Host', dbData.dbHost);
