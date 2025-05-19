@@ -10,7 +10,7 @@ _This app is a restaurant booking platform with two parts, one related to the re
 - Save a booking for you only (or for you and some guests) through a form and get a reservation number at the end of the registration
 - Look for your booking details with this registration number, edit some data or delete your booking
 <br/>
-<img alt="Homepage And Search" src="frontend/src/gifs/Foodbooking_(Home-Search).gif" width="800" height="600" />
+<img alt="Homepage And Search" src="frontend/src/gifs/Foodbooking_(Home-Search).gif" width="600" height="600" />
 
 ###### Dishes ######
 
