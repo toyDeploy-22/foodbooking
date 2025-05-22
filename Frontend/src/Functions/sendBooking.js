@@ -191,9 +191,9 @@ try {
                 url: `https://foodbooking-backend.vercel.app/reservation/allreservation_email/${firstCheck.resa['email']}`});
         */
 
-        const findMail = resamail.indexOf(firstCheck.resa['email']);
+        const findMail = resamail.indexOf(firstCheck.resa['email'].toLowerCase());
 
-        if(findMail.length > 0) {         
+        if(findMail.length !== -1) {         
         return duplicate 
         } else {
 

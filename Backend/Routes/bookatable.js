@@ -147,7 +147,7 @@ bookatable.get('/allreservation_emails', async(req, res)=>{
 		const bookings = await reservationModel.find({});
 		
 		if(bookings){
-		const Bookings_emails = bookings.map((clients) => clients.email );
+		const Bookings_emails = bookings.map((clients) => clients.email.toLowerCase() );
 		res.json(Bookings_emails);
 		
 		result.code = 200;
