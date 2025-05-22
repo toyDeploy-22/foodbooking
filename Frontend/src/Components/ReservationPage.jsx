@@ -66,7 +66,7 @@ const handleBooking = (e) => {
         }
 
       setReservation({...reservation, [name]: value});
-      console.log(reservation)
+      // console.log(reservation)
 }
 
 const handle_legalAge = (e) => {
@@ -82,7 +82,7 @@ reservation.client_legalAge = !isLegal
 const handle_GuestDishes = (e) => {
     let {name, value} = e.target;
     setGuestDishes({...guestDishes, [name]: value});
-    console.log(guestDishes)
+   // console.log(guestDishes)
 }
 
 const eightyComments = charactersLeft(80, reservation.client_extra.length);
@@ -542,7 +542,7 @@ return(
         }
 
         {   
-        hasErrors.ok === 'false' && <>
+        (hasErrors.ok === 'false' && errStack[0].id !== 'Err500') && <>
         {
         hasErrors.title === "D000 Dish Detected" ?
         <div id="D000_Dish_Detected">
