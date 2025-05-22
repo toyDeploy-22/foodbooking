@@ -184,7 +184,9 @@ try {
 
         // const finder = await fetch(`http://localhost:5000/reservation/allreservation_email/${firstCheck.resa['email']}`);
 
-        const finder = await fetch(`https://foodbooking-backend.vercel.app/reservation/allreservation_email/${firstCheck.resa['email']}`);
+        const finder = await axios({
+                method: 'get',
+                url: `https://foodbooking-backend.vercel.app/reservation/allreservation_email/${firstCheck.resa['email']}`});
 
         const findMail = await finder.json();
         
