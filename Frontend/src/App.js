@@ -14,6 +14,9 @@ function App () {
 
 const [loader, setLoader] = useState(false);
 const [fullDishes, setFullDishes] = useState([]);
+const [fullResas, setFullResas] = useState([{
+
+}])
 const [Error, setError] = useState(false);
 
 
@@ -27,13 +30,26 @@ const signal = controller.signal;
 const getDishes = async() => {
     try {
         setLoader(true);
-        const url = `https://foodbooking-backend.vercel.app/dish/alldishes`;
-        const fetchURL = await fetch(url, { signal: signal });
-        const dataURL = await fetchURL.json();
-        setFullDishes(() => [...dataURL]);
+        const url1 = `https://foodbooking-backend.vercel.app/dish/alldishes`; // dishes
+        const url2 = `https://foodbooking-backend.vercel.app/allreservation_emails`; // bookings
+
+        const fetchURL1 = async() => {
+           const getURL1 = await fetch(url1, { signal: signal });
+           const dataURL1 = await getURL1.json();
+           setFullDishes(() => [...dataURL1]);
+        }
+
+        const fetchURL2 = async() => { 
+           const getURL2 = await fetch(url2, {signal: signal});
+           const dataURL2 = await getURL2.json();
+           setFullResas([...dataURL2]);
+        }
+
+        await Promise.all([fetchURL1, fetchURL2]);
+        
         setError(false);
         setLoader(false);
-        console.log('dishes added.')
+        console.log('dishes and bookings added.')
     }
     catch(err) {
         setLoader(false);
@@ -65,7 +81,7 @@ return (
     <NavBar />
     <div className='coverContainer'>
     <App2 meals={fullDishes} />
-    <App3 meals={fullDishes} />
+    <App3 meals={fullDishes} bookings={fullResas} />
     </div>
     </div>
     </React.Fragment>

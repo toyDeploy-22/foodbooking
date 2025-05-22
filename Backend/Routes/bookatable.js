@@ -114,6 +114,7 @@ bookatable.get('/search/:booking_id', async(req, res)=>{
 	
 })
 
+*/
 bookatable.options('/allreservation_email/:email')
 bookatable.get('/allreservation_email/:email', async(req, res)=>{
 	result = new Object();
@@ -138,6 +139,41 @@ bookatable.get('/allreservation_email/:email', async(req, res)=>{
 		res.status(result.code).json(result);	
 	}
 })
+*/
+
+bookatable.options('/allreservation_emails')
+bookatable.get('/allreservation_emails', async(req, res)=>{
+	try {
+		const bookings = await reservationModel.find({});
+		
+		if(bookings){
+		const Bookings_emails = bookings.map((clients) => clients.email );
+		res.json(Bookings_emails);
+		
+		result.code = 200;
+		result.title = "Success";
+		
+		res.json(Bookings_emails) // returns an array
+		
+		} else {
+		result.code = 500;
+		result.title = "Database booking Issue";
+		result.msg = err.message;
+		
+		res.status(result.code).json(result);
+		}
+		
+	} catch(err) {
+		result.code = 500;
+		result.title = "Database booking Issue";
+		result.msg = err.message;
+
+		res.setHeader("Object", "Db Query Failed");
+		res.status(result.code).json(result);
+	}
+	
+})
+
 
 bookatable.options('/new-table-edition/:booking_id')
 bookatable.patch('/new-table-edition/:booking_id', async(req, res) => {
