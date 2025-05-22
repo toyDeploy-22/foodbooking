@@ -1,5 +1,5 @@
 // import React, { useState } from 'react';
-
+import axios from "axios";
 import { reservationValidator } from "./reservationValidator.js";
 
 function getNewObj(obj) {
@@ -196,8 +196,10 @@ try {
 
         // const url = 'http://localhost:5000/reservation/new-table';
 
-        const url = 'https://foodbooking-backend.vercel.app/reservation/new-table'; 
+        const table_URL = 'https://foodbooking-backend.vercel.app/reservation/new-table'; 
 
+
+        /*
         const booker = await fetch(url, { 
                         headers: {"Content-Type": "application/json"}, 
                         method: 'POST', 
@@ -205,10 +207,17 @@ try {
                 
         const bookerData = await booker.json();
         console.log(bookerData)
+        */
 
-        if(bookerData.code >= 200 && bookerData.code < 300) {
+        const bookerData = await axios({
+                method: 'post',
+                url: table_URL,
+                data: firstCheck.resa
+        });
 
-                result.ok = "true";
+        if(bookerData.status >= 200 && bookerData.status < 300) {
+
+                result.ok = 'true';
                 result.title = bookerData.id;
                 result.msg = 
                 [{
