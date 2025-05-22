@@ -184,11 +184,11 @@ try {
 
         // const finder = await fetch(`http://localhost:5000/reservation/allreservation_email/${firstCheck.resa['email']}`);
 
-        const finder = await axios({
+        const findMail = await axios({
                 method: 'get',
                 url: `https://foodbooking-backend.vercel.app/reservation/allreservation_email/${firstCheck.resa['email']}`});
 
-        const findMail = await finder.json();
+       // const findMail = await finder.json();
         
         if(findMail.length > 0) {         
         return duplicate 
