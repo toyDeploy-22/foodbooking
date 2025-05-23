@@ -20,9 +20,10 @@ bookatable.post('/new-table', async(req, res) => {
 		const missProps = requiredProps.filter((key) => !req.body.hasOwnProperty(key));
 		
 		if(missProps.length > 0) {
+			
 		result.code = 401;
 		result.title = "Unauthorized";
-		result.msg = "Some properties are missing. Pleake make sure that all required fields have been has been filled-in";
+		result.msg = "Some properties are missing. Pleake make sure that all required fields have been completed.";
 		
 		res.setHeader("Object", "Booking Failed");
 		res.status(result.code).json(result);
@@ -30,8 +31,8 @@ bookatable.post('/new-table', async(req, res) => {
 		} else if(allBookings.filter((user) => user.toLowerCase() === req.body.email.toLowerCase())) {
 
 		result.code = 401;
-        result.title: 'Unauthorized';
-        result.msg: `Your request cannot be sent because there is already a pending booking from email ${req.body.email} in our database. If you want to cancel your booking, go to "Modify A Reservation" section.`;
+        result.title = 'Unauthorized';
+        result.msg = `Your request cannot be sent because there is already a pending booking from email ${req.body.email} in our database. If you want to cancel your booking, go to "Modify A Reservation" section.`;
 		
 		res.setHeader("Object", "Booking Failed");
 		res.status(result.code).json(result);
