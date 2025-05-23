@@ -156,7 +156,7 @@ function secondLaunchCheck(seat, dishes) {
 // status: true, id: '', section: '', title: '', msg: ''
 
 
-async function sendBooking(obj, arr, resamail) {
+async function sendBooking(obj, arr) {
 
 try {
         const firstCheck = firstLaunchCheck(obj);
@@ -172,15 +172,6 @@ try {
         } else {
 
         const result = {};
-        const duplicate = {
-               ok: "false",
-               title: 'Unauthorized',
-               msg: [{
-                status: false,
-                id: '011-1',
-                section: 'Duplicate Email',
-                msg: 'Your request cannot be sent because your email already exist in our database. If you want to cancel your booking, go to "Cancel Booking" section.'}]
-                }
 
         /* const finder = await fetch(`http://localhost:5000/reservation/allreservation_email/${firstCheck.resa['email']}`);
        const findMail = await finder.json();
@@ -190,12 +181,6 @@ try {
                 method: 'get',
                 url: `https://foodbooking-backend.vercel.app/reservation/allreservation_email/${firstCheck.resa['email']}`});
         */
-
-        const findMail = resamail.indexOf(firstCheck.resa['email'].toLowerCase());
-
-        if(findMail.length !== -1) {         
-        return duplicate 
-        } else {
 
         firstCheck.resa.dishes = arr;
 
@@ -246,10 +231,8 @@ try {
 
                 return result;
 
-                        }
-                }
-         }
-        } catch(err) {
+                        }}
+         } catch(err) {
 
         const catchSchema = [{
         status: false,

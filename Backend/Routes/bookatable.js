@@ -15,6 +15,28 @@ bookatable.options('/new-table')
 bookatable.post('/new-table', async(req, res) => {
 	result = new Object();
 	try {
+		const allBookings = await reservationModel.find({});
+		const requiredProps = ["fname", "lname", "email", "phone", "guests", "dishes", "smoking", "bookDay", "bookTime", "legalAge"];
+		const missProps = requiredProps.filter((key) => !req.body.hasOwnProperty(key));
+		
+		if(missProps.length > 0) {
+		result.code = 401;
+		result.title = "Unauthorized";
+		result.msg = "Some properties are missing. Pleake make sure that all required fields have been has been filled-in";
+		
+		res.setHeader("Object", "Booking Failed");
+		res.status(result.code).json(result);
+		
+		} else if(allBookings.filter((user) => user.toLowerCase() === req.body.email.toLowerCase())) {
+
+		result.code = 401;
+        result.title: 'Unauthorized';
+        result.msg: `Your request cannot be sent because there is already a pending booking from email ${req.body.email} in our database. If you want to cancel your booking, go to "Modify A Reservation" section.`;
+		
+		res.setHeader("Object", "Booking Failed");
+		res.status(result.code).json(result);
+                
+		}} else {
 		const { fname, lname, email, phone, guests, dishes, smoking, bookDay, bookTime, legalAge } = req.body;
 		const newData = {
 		first_name: fname,
@@ -52,7 +74,8 @@ bookatable.post('/new-table', async(req, res) => {
 		
 		const newBooking = new reservationModel(newData);
 		
-		const countBooking = await reservationModel.estimatedDocumentCount({});		
+		// const countBooking = await reservationModel.estimatedDocumentCount({});	
+		const countBooking = allBookings.length;
 		const saveId = await newBooking.save();	
 		const newId = await saveId.id;
 		// const new_id = await saveId._id;
@@ -75,7 +98,7 @@ bookatable.post('/new-table', async(req, res) => {
 		res.setHeader("Object", "Booking Accepted");
 		res.status(result.code).json(result);
 		
-	} catch(err) {
+	}} catch(err) {
 
 		// result
 		console.error(err);
@@ -140,39 +163,6 @@ bookatable.get('/allreservation_email/:email', async(req, res)=>{
 	}
 })
 */
-
-bookatable.options('/allreservation_emails')
-bookatable.get('/allreservation_emails', async(req, res)=>{
-	try {
-		const bookings = await reservationModel.find({});
-		
-		if(bookings){
-		const Bookings_emails = bookings.map((clients) => clients.email.toLowerCase() );
-		res.json(Bookings_emails);
-		
-		result.code = 200;
-		result.title = "Success";
-		
-		res.json(Bookings_emails) // returns an array
-		
-		} else {
-		result.code = 500;
-		result.title = "Database booking Issue";
-		result.msg = err.message;
-		
-		res.status(result.code).json(result);
-		}
-		
-	} catch(err) {
-		result.code = 500;
-		result.title = "Database booking Issue";
-		result.msg = err.message;
-
-		res.setHeader("Object", "Db Query Failed");
-		res.status(result.code).json(result);
-	}
-	
-})
 
 
 bookatable.options('/new-table-edition/:booking_id')
