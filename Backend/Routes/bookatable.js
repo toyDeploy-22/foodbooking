@@ -28,7 +28,7 @@ bookatable.post('/new-table', async(req, res) => {
 		res.setHeader("Object", "Booking Failed");
 		res.status(result.code).json(result);
 		
-		} else if(allBookings.filter((user) => user.toLowerCase() === req.body.email.toLowerCase())) {
+		} else if(allBookings.filter((user) => user.email.toLowerCase() === req.body.email.toLowerCase())) {
 
 		result.code = 401;
         result.title = 'Unauthorized';
