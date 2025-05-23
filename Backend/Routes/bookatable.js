@@ -37,7 +37,7 @@ bookatable.post('/new-table', async(req, res) => {
 		res.setHeader("Object", "Booking Failed");
 		res.status(result.code).json(result);
                 
-		}} else {
+		} else {
 		const { fname, lname, email, phone, guests, dishes, smoking, bookDay, bookTime, legalAge } = req.body;
 		const newData = {
 		first_name: fname,
