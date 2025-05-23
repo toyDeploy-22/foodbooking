@@ -138,7 +138,7 @@ bookatable.get('/search/:booking_id', async(req, res)=>{
 	
 })
 
-*/
+/*
 bookatable.options('/allreservation_email/:email')
 bookatable.get('/allreservation_email/:email', async(req, res)=>{
 	result = new Object();
