@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import LoadingElement from "./Components/loadingElement.jsx";
 import ErrorElement from "./Components/errorElement.jsx";
 
@@ -28,8 +29,8 @@ const getDishes = async() => {
     try {
         setLoader(true);
         const url = `https://foodbooking-backend.vercel.app/dish/alldishes`;
-        const fetchURL = await fetch(url, { signal: signal });
-        const dataURL = await fetchURL.json();
+        const dataURL = await axios.get(url, { signal: signal });
+        // const dataURL = await fetchURL.json();
         setFullDishes(() => [...dataURL]);
         setError(false);
         setLoader(false);
