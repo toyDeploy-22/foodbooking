@@ -31,7 +31,7 @@ const getDishes = async() => {
         const url = `https://foodbooking-backend.vercel.app/dish/alldishes`;
         const dataURL = await axios.get(url, { signal: signal });
         // const dataURL = await fetchURL.json();
-        setFullDishes(() => [...dataURL]);
+        setFullDishes(() => [...dataURL.data]);
         setError(false);
         setLoader(false);
         console.log('dishes added.')
