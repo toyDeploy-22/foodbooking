@@ -202,7 +202,8 @@ try {
         const bookerData = await axios({
                 method: 'post',
                 url: table_URL,
-                data: firstCheck.resa
+                data: firstCheck.resa,
+                timeout: 9000
         });
 
         console.log(bookerData)
