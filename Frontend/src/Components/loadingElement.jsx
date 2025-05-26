@@ -2,7 +2,7 @@ import Spinner from "react-bootstrap/Spinner";
 
 function LoadingElement() {
     return (
-        <div>
+        <div className="mt-3 mx-4">
                 <h5>Loading...</h5>
                 <br />
                 <Spinner animation="border" variant="primary" />

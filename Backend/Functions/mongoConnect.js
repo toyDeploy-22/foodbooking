@@ -23,7 +23,7 @@ const failureMsg = (error) => {
 
 const mongoStats = {
 		dbService: 'MongoDB',
-		dbName: 'Db Name unknown',
+		dbName: 'Foodbooking Db',
 		dbHost: 'cluster0...mongodb.net',
 		dbPort: 27017
 		};

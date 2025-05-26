@@ -26,7 +26,7 @@ const reservationClient = {
 		booking_id: {type: String, required: true}
 }
 
-const reservationSchema = new mongoose.Schema(reservationClient, {collection: 'bookings', timestamps: true });
+const reservationSchema = new mongoose.Schema(reservationClient, {collection: 'booking', timestamps: true });
 // timestamps accessible with properties .createdAt & model.updatedAt;
 
 const reservationModel = mongoose.model('', reservationSchema);
