@@ -65,8 +65,7 @@ bookatable.post('/new-table', async(req, res) => {
 		
 		const newBooking = new reservationModel(newData);
 		
-		// const countBooking = await reservationModel.estimatedDocumentCount({});	
-		const countBooking = allBookings.length;
+		const countBooking = await reservationModel.estimatedDocumentCount({});
 		const saveId = await newBooking.save();	
 		const newId = await saveId.id;
 		// const new_id = await saveId._id;
