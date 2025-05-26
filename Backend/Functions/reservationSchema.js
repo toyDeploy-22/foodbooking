@@ -11,7 +11,8 @@ const dishSchema = new mongoose.Schema({
 const reservationClient = {
         first_name: { type: String, required: true },
 		last_name: { type: String, required: true },
-		email: { type: String, required: true },
+		email: { type: String, required: true, unique: true },
+		// if database is dropped, use .init to sync database in order for unique to work
         phone: { type: String, required: true },
         guests: { type: Number, default:0, max: 10, required: true },
 		dishes_selected: {type: [dishSchema], validate: validDish, required: true },

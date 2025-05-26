@@ -15,7 +15,6 @@ bookatable.options('/new-table')
 bookatable.post('/new-table', async(req, res) => {
 	result = new Object();
 	try {
-		const allBookings = await reservationModel.find({});
 		const requiredProps = ["fname", "lname", "email", "phone", "guests", "dishes", "smoking", "bookDay", "bookTime", "legalAge"];
 		const missProps = requiredProps.filter((key) => !req.body.hasOwnProperty(key));
 		
@@ -28,15 +27,6 @@ bookatable.post('/new-table', async(req, res) => {
 		res.setHeader("Object", "Booking Failed");
 		res.status(result.code).json(result);
 		
-		} else if(allBookings.filter((user) => user.email.toLowerCase() === req.body.email.toLowerCase()).length > 0) {
-
-		result.code = 401;
-        result.title = 'Unauthorized';
-        result.msg = `Your request cannot be sent because there is already a pending booking from email ${req.body.email} in our database. If you want to cancel your booking, go to "Modify A Reservation" section.`;
-		
-		res.setHeader("Object", "Booking Failed");
-		res.status(result.code).json(result);
-                
 		} else {
 		const { fname, lname, email, phone, guests, dishes, smoking, bookDay, bookTime, legalAge } = req.body;
 		const newData = {
@@ -103,7 +93,7 @@ bookatable.post('/new-table', async(req, res) => {
 
 		// result
 		console.error(err);
-		result.code = err.message.substring(1,18).includes("validation failed") ? 401 : 500;
+		result.code = (err.message.substring(1,18).includes("validation failed")) || (err.message.includes("duplicate")) ? 401 : 500;
 		result.title = "Database Creation Failed";
 		result.msg = err.message;
 		
