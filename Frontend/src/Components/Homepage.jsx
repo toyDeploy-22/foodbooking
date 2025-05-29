@@ -1,17 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import dishSchema from '../Functions/dishSchema';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Carousel from 'react-bootstrap/Carousel';
-import Image from "../Cover/No_Picture.jpg";
+import NoImage from "../Cover/No_Picture.jpg";
 
 function Homepage({ meals }) { 
 
+    const [dishes, setDishes] = useState([dishSchema])
     const [position, setPosition] = useState(0); 
-    const [noLinks, setNoLinks] = useState([]) ; // filters duplicates
+    const [allLinks, setallLinks] = useState([]) ; // filters duplicates
 
-    const dishes = [...meals];
+    useEffect(() => {
+    setDishes([...meals]);
+    setallLinks(() => meals.map((link) => link.dish_id))
+    }, [])
 
+    // const dishes = [...meals];
     const changePosition=(p)=> { 
         setPosition(() => p + 1 > dishes.length - 1 ? 0 : p + 1);
     }
