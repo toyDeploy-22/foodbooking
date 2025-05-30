@@ -16,12 +16,12 @@ function Homepage({ meals }) {
     Array.isArray(meals) && meals[0].dish_id ? setDishes([...meals]) : setDishes([]);
     }, [])
     */
-    
+
+    const dishes = [...meals];
     const setLink = (e) => {
         e.target.src = NoImage
     }
 
-    // const dishes = [...meals];
     const changePosition=(p)=> { 
         setPosition(() => p + 1 > dishes.length - 1 ? 0 : p + 1);
     }
@@ -48,7 +48,7 @@ return(
                  onClick={()=>changePosition(position)}>
 				 <a href={`${FRhost}/dish/id?dishid=${dish.dish_id}`}>
                 <img className="d-block w-100"
-                src={"https://foodbooking-backend.vercel.app/dish/dish-illustration/" + dish.dish_id} 
+                src={BKhost + "/dish-illustration/" + dish.dish_id} 
                 alt={dish.dish_name + " picture"}
                 onError={setLink} />
 				</a>
