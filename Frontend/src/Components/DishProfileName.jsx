@@ -41,6 +41,11 @@ useEffect(()=>{
     }
 }, [])
 
+const setLink = (e) => {
+        setNoLink(true);
+        e.target.src = Image
+    }
+
 if(Error === true) {
     return(ErrorElement)
 } else {
@@ -59,8 +64,8 @@ return (
                  className={!noLink ? "w-75" : "w-50"}
                  rounded={!noLink ? false : true}
                  alt={dishSelected.dish_name}
-                 src={ !noLink ? `${host}/${dishSelected.dish_file}` : Image }
-                 onError={() => setNoLink(true)}
+                 src={`${host}/dish/dish-illustration/${dishSelected.dish_id}`}
+                 onError={setLink}
                />
                <Figure.Caption>
                <p className="bg-secondary text-light fst-italic w-75 mx-auto">{dishSelected.dish_description}</p>
