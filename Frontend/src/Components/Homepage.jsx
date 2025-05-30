@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 // import dishSchema from '../Functions/dishSchema';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -16,8 +16,6 @@ function Homepage({ meals }) {
     Array.isArray(meals) && meals[0].dish_id ? setDishes([...meals]) : setDishes([]);
     }, [])
     */
-
-    const dishes = [...meals];
 
     const setLink = (e) => {
         e.target.src = NoImage
@@ -39,13 +37,13 @@ return(
     <Container>
                 <Row className="d-flex justify-content-center">
                 { 
-                dishes.length > 0 ? 
+                meals.length > 0 ? 
                 <Col className='text-center' sm={12} md={8}>
                 <h1 className='bg-secondary text-light'>Book & Food</h1>
                 <span id="slogan"><i>Need to eat? Just save and go!</i></span>
                 <br /><br />
                 <Carousel>
-                {dishes.map((dish) => (
+                {meals.map((dish) => (
                 <Carousel.Item
                  key={"dish-n" + dish.dish_id}>
 				 <a href={`${FRhost}/dish/id?dishid=${dish.dish_id}`}>
