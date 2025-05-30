@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import dishSchema from '../Functions/dishSchema';
+import { useState } from 'react';
+// import dishSchema from '../Functions/dishSchema';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -8,13 +8,15 @@ import NoImage from "../Cover/No_Picture.jpg";
 
 function Homepage({ meals }) { 
 
-    const [dishes, setDishes] = useState([dishSchema])
+    // const [dishes, setDishes] = useState([dishSchema])
     const [position, setPosition] = useState(0); 
 
+    /*
     useEffect(() => {
     Array.isArray(meals) && meals[0].dish_id ? setDishes([...meals]) : setDishes([]);
     }, [])
-
+    */
+    
     const setLink = (e) => {
         e.target.src = NoImage
     }
