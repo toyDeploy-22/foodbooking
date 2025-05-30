@@ -1,4 +1,4 @@
-// import { useState } from 'react';
+
 // import dishSchema from '../Functions/dishSchema';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -8,24 +8,9 @@ import NoImage from "../Cover/No_Picture.jpg";
 
 function Homepage({ meals }) { 
 
-    // const [dishes, setDishes] = useState([dishSchema])
-    // const [position, setPosition] = useState(0); 
-
-    /*
-    useEffect(() => {
-    Array.isArray(meals) && meals[0].dish_id ? setDishes([...meals]) : setDishes([]);
-    }, [])
-    */
-
     const setLink = (e) => {
         e.target.src = NoImage
     }
-
-    /*
-    const changePosition=(p)=> { 
-        setPosition(() => p + 1 > dishes.length - 1 ? 0 : p + 1);
-    }
-    */
 
     // const FRhost = "http://localhost:3000";
     // const BKhost = "http://localhost:5000";
@@ -48,7 +33,7 @@ return(
                  key={"dish-n" + dish.dish_id}>
 				 <a href={`${FRhost}/dish/id?dishid=${dish.dish_id}`}>
                 <img className="d-block w-100"
-                src={BKhost + '/dish-illustration/' + dish.dish_id} 
+                src={BKhost + '/dish/dish-illustration/' + dish.dish_id} 
                 alt={dish.dish_name + " picture"}
                 onError={setLink} />
 				</a>
