@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import dishSchema from '../Functions/dishSchema';
+import dishSchema from '../Functions/dishSchema';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -9,7 +9,7 @@ import NoImage from "../Cover/No_Picture.jpg";
 function Homepage({ meals }) { 
 
     // const [dishes, setDishes] = useState([dishSchema])
-    const [position, setPosition] = useState(0); 
+    const [position, setPosition] = useState([dishSchema]); 
 
     /*
     useEffect(() => {
@@ -23,7 +23,8 @@ function Homepage({ meals }) {
     }
 
     const changePosition=(p)=> { 
-        setPosition(() => p + 1 > dishes.length - 1 ? 0 : p + 1);
+        setPosition(dishes[p + 1 > dishes.length - 1 ? 0 : p + 1]);
+
     }
 
     // const FRhost = "http://localhost:3000";
@@ -42,14 +43,14 @@ return(
                 <span id="slogan"><i>Need to eat? Just save and go!</i></span>
                 <br /><br />
                 <Carousel>
-                {dishes.map((dish) => (
+                {dishes.map((dish, p) => (
                 <Carousel.Item
                  key={"dish-n" + dish.dish_id}
-                 onClick={()=>changePosition(position)}>
-				 <a href={`${FRhost}/dish/id?dishid=${dish.dish_id}`}>
+                 onClick={()=>changePosition(p)}>
+				 <a href={`${FRhost}/dish/id?dishid=${position.dish_id}`}>
                 <img className="d-block w-100"
-                src={BKhost + "/dish-illustration/" + dish.dish_id} 
-                alt={dish.dish_name + " picture"}
+                src={BKhost + '/dish-illustration/' + position.dish_id} 
+                alt={position.dish_name + " picture"}
                 onError={setLink} />
 				</a>
                 <Carousel.Caption>

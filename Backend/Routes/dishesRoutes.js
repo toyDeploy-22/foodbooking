@@ -70,7 +70,7 @@ dishRoute.get("/name", (req, res)=>{
 	}
 });
 
-// dishRoute.options('/dish-illustration/:dishid')
+dishRoute.options('/dish-illustration/:dishid')
 dishRoute.get('/dish-illustration/:dishid', (req, res) => {
 	try {
 		const imgFolder = join(dirname(fileURLToPath(import.meta.url)), '..', 'Src', 'dishes_Pictures');
