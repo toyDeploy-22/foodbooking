@@ -47,10 +47,10 @@ return(
                 <Carousel.Item
                  key={"dish-n" + dish.dish_id}
                  onClick={()=>changePosition(p)}>
-				 <a href={`${FRhost}/dish/id?dishid=${position.dish_id}`}>
+				 <a href={`${FRhost}/dish/id?dishid=${position[0].dish_id}`}>
                 <img className="d-block w-100"
-                src={BKhost + '/dish-illustration/' + position.dish_id} 
-                alt={position.dish_name + " picture"}
+                src={BKhost + '/dish-illustration/' + position[0].dish_id} 
+                alt={position[0].dish_name + " picture"}
                 onError={setLink} />
 				</a>
                 <Carousel.Caption>
