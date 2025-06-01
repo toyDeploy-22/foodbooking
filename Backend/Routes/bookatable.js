@@ -63,9 +63,9 @@ bookatable.post('/new-table', async(req, res) => {
 		res.status(result.code).json(result);
 		}
 		
-		const newBooking = new reservationModel(newData);
-		await newBooking.init();
+		await reservationModel.init();
 		// .init() to build index (not needed for prod)
+		const newBooking = new reservationModel(newData);
 		const countBooking = await reservationModel.estimatedDocumentCount({});
 		const saveId = await newBooking.save();	
 		const newId = await saveId.id;
