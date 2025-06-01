@@ -172,7 +172,8 @@ const submitData = async() => {
 
 const ready = async(e) => {
     e.preventDefault();  
-   await new Promise(() => setTimeout(submitData, 500))
+   const getReady = await new Promise(() => setTimeout(submitData, 500));
+   return getReady
 }
 
 const closeModal = () => {
