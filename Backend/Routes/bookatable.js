@@ -32,7 +32,7 @@ bookatable.post('/new-table', async(req, res) => {
 		const newData = {
 		first_name: fname,
 		last_name: lname,
-		email: email,
+		email: email.toLowerCase(),
         phone: phone,
         guests: guests,
 		dishes_selected: dishes,

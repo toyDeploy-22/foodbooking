@@ -203,7 +203,7 @@ try {
                 method: 'post',
                 url: table_URL,
                 data: firstCheck.resa,
-                timeout: 9000
+               // timeout: 5000
         });
 
         console.log(bookerData)
