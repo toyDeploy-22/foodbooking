@@ -30,6 +30,6 @@ const reservationSchema = new mongoose.Schema(reservationClient, {collection: 'b
 // timestamps accessible with properties .createdAt & model.updatedAt;
 
 const reservationModel = mongoose.model('', reservationSchema);
-await reservationModel.init();
+// await reservationModel.init();
 // .init() to build index (not needed for prod)
 export default reservationModel; 
