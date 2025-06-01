@@ -28,6 +28,8 @@ bookatable.post('/new-table', async(req, res) => {
 		res.status(result.code).json(result);
 		
 		} else {
+		await reservationModel.init();
+		// .init() to build index (not needed for prod)
 		const { fname, lname, email, phone, guests, dishes, smoking, bookDay, bookTime, legalAge } = req.body;
 		const newData = {
 		first_name: fname,
@@ -63,8 +65,6 @@ bookatable.post('/new-table', async(req, res) => {
 		res.status(result.code).json(result);
 		}
 		
-		await reservationModel.init();
-		// .init() to build index (not needed for prod)
 		const newBooking = new reservationModel(newData);
 		const countBooking = await reservationModel.estimatedDocumentCount({});
 		const saveId = await newBooking.save();	
