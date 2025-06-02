@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 async function mongoConnect(url) { 
-	const opts = {dbName: 'restaurant'};
+	const opts = {dbName: 'restaurant', autoIndex: false};
 	const conn = await mongoose.connect(url, opts);
 	return conn
 }
