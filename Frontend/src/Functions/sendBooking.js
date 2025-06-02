@@ -44,6 +44,7 @@ function firstLaunchCheck(seat, emails) {
         
         // client_legalAge is boolean
         if(client_legalAge) {
+                console.log(emails)
         if(emails.indexOf(client_email.toLowerCase() > -1)) {
         
         result.ok = "false";
@@ -52,7 +53,7 @@ function firstLaunchCheck(seat, emails) {
         status: false,
         id: '034',
         section: "Email Already Exists",
-        msg: `The booking request cannot be sent because there is already a pending booking under the email address ${client_email}. You can modify or delete your pending booking before confirming a new one.`}];
+        msg: `The booking request cannot be sent because there is already a pending booking under the email address '${client_email}'. You can modify or delete your pending booking before confirming a new one.`}];
         
         return result
 
