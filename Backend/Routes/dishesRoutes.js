@@ -1,6 +1,7 @@
 
 import Express from 'express';
 import allDishes from '../Src/All_Dishes.js';
+import reservationModel from '../Functions/reservationSchema.js';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -8,7 +9,11 @@ const dishRoute = Express.Router();
 
 dishRoute.get("/alldishes", (req, res)=>{
 	try {
-		res.json(allDishes)
+		const allBookings = await reservationModel.find({});
+		res.json({ 
+			dishes: allDishes,
+			bookings: allBookings 
+			})
 	} catch(err) {
 		console.error(err);
 		res.status(500).send({

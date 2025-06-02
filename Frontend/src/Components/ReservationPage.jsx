@@ -24,7 +24,7 @@ import sendBooking from '../Functions/sendBooking.js';
 import { getErrVariant } from '../Functions/setStyles.js';
 
 
-function ReservationPage({ meals, info }) {    
+function ReservationPage({ meals, info, emails }) {    
 const [reservation, setReservation] = useState({
         client_fname: '',
         client_lname: '',
@@ -119,7 +119,7 @@ const submitData = async() => {
     } else {
 
     let allUserDishes = dishesNames.length > 1 ? getGuestDishes(meals, dishesNames) : getDishes(meals, guestDishes.guestDishes_0);
-    const launcher = await sendBooking(reservation, allUserDishes);
+    const launcher = await sendBooking(reservation, allUserDishes, emails);
     console.log(launcher)
 
     if(launcher.ok === 'false') {

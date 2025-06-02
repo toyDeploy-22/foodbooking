@@ -44,8 +44,19 @@ function firstLaunchCheck(seat) {
         
         // client_legalAge is boolean
         if(client_legalAge) {
+        if(emails.indexOf(client_email.toLowerCase() > -1)) {
+        
+        result.ok = "false";
+        result.title = 'Duplicate Email';
+        result.msg = [{
+        status: false,
+        id: '020',
+        section: "Email Already Exists",
+        msg: `The booking request cannot be sent because there is already a pending booking under the email address ${client_email}. You can modify or delete your pending booking before confirming a new one.`}];
+        
+        return result
 
-        if(seat.hasGuests && totalGuests.indexOf(client_guests) > -1 || !seat.hasGuests && client_guests === 0 ) {
+        } else if(seat.hasGuests && totalGuests.indexOf(client_guests) > -1 || !seat.hasGuests && client_guests === 0 ) {
 
         reservation.fname = client_fname;
 	reservation.lname = client_lname;
@@ -156,7 +167,7 @@ function secondLaunchCheck(seat, dishes) {
 // status: true, id: '', section: '', title: '', msg: ''
 
 
-async function sendBooking(obj, arr) {
+async function sendBooking(obj, arr, emails) {
 
 try {
         const firstCheck = firstLaunchCheck(obj);

@@ -15,6 +15,7 @@ function App () {
 
 const [loader, setLoader] = useState(false);
 const [fullDishes, setFullDishes] = useState([]);
+const [allEmails, setAllEmails] = useState([]);
 const [Error, setError] = useState(false);
 
 
@@ -31,7 +32,8 @@ const getDishes = async() => {
         const url = `https://foodbooking-backend.vercel.app/dish/alldishes`;
         const dataURL = await axios.get(url, { signal: signal });
         // const dataURL = await fetchURL.json();
-        setFullDishes(() => [...dataURL.data]);
+        setFullDishes(() => [...dataURL.data.dishes]);
+        setAllEmails(() => dataURL.data.bookings.map((customer) => customer.email));
         setError(false);
         setLoader(false);
         console.log('dishes added.')
@@ -66,7 +68,7 @@ return (
     <NavBar />
     <div className='coverContainer'>
     <App2 meals={fullDishes} />
-    <App3 meals={fullDishes} />
+    <App3 meals={fullDishes} emails={allEmails} />
     </div>
     </div>
     </React.Fragment>
