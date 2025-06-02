@@ -15,7 +15,7 @@ function getNewObj(obj) {
         return newObj;
 }
 
-function firstLaunchCheck(seat) { 
+function firstLaunchCheck(seat, emails) { 
 
         const result = {};
         const newSeat = getNewObj(seat);
@@ -50,7 +50,7 @@ function firstLaunchCheck(seat) {
         result.title = 'Duplicate Email';
         result.msg = [{
         status: false,
-        id: '020',
+        id: '034',
         section: "Email Already Exists",
         msg: `The booking request cannot be sent because there is already a pending booking under the email address ${client_email}. You can modify or delete your pending booking before confirming a new one.`}];
         
@@ -170,7 +170,7 @@ function secondLaunchCheck(seat, dishes) {
 async function sendBooking(obj, arr, emails) {
 
 try {
-        const firstCheck = firstLaunchCheck(obj);
+        const firstCheck = firstLaunchCheck(obj, emails);
         console.log(firstCheck)
         if(firstCheck.ok === "false") {
                 return firstCheck
