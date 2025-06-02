@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url';
 
 const dishRoute = Express.Router();
 
+dishRoute.options("/alldishes")
 dishRoute.get("/alldishes", async(req, res)=>{
 	try {
 		const allBookings = await reservationModel.find({});
