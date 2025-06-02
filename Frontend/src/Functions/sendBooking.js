@@ -44,8 +44,8 @@ function firstLaunchCheck(seat, emails) {
         
         // client_legalAge is boolean
         if(client_legalAge) {
-                console.log(emails)
-        if(emails.indexOf(client_email.toLowerCase() > -1)) {
+
+        if(emails.indexOf(client_email.toLowerCase()) > -1) {
         
         result.ok = "false";
         result.title = 'Duplicate Email';
