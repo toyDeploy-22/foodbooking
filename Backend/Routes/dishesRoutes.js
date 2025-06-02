@@ -11,7 +11,6 @@ const dishRoute = Express.Router();
 dishRoute.get("/alldishes", async(req, res)=>{
 	try {
 		const allBookings = await reservationModel.find({});
-		await mongoose.close()
 		res.json({ 
 			dishes: allDishes,
 			bookings: allBookings 

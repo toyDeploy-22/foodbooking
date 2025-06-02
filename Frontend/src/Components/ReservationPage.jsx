@@ -193,8 +193,6 @@ const refresh = () => {
     setErrStack(() => msgSchema); 
 }
 
-console.log(emails)
-
 return(
         <React.Fragment>
         <h3 className='display-5 bg-dark fw-bold text-light text-center py-2'> Reservation Form</h3>
