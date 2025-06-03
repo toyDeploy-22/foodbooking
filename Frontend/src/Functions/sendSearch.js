@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getResaSchema } from './resaSchema';
+import { getResaSchema } from './resaSchema.js';
 /* 
 axios is useful for response handling, including response code 404,
 as basic fetch does not handle 404 response and returns undefined instead.
@@ -15,16 +15,18 @@ try {
 const url = `https://foodbooking-backend.vercel.app/reservation/search/${id}`;
 
 const fetcher = await axios.get(url);
+console.log(fetcher.data)
 
 let status = fetcher.status;
 
-if(status !== 200) {
+if(status < 200 || status >= 300) {
     result.ok = false;
     result.code = status;
     result.data = [];
     return result
 } else {
-    const data = getResaSchema(fetcher.data._doc);
+    // const data = getResaSchema(fetcher.data._doc);
+    const data = fetcher.data;
     result.ok = true;
     result.code = status;
     result.data = [data] // array of obj
