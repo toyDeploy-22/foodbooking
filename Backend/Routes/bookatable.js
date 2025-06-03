@@ -107,7 +107,7 @@ bookatable.get('/search/:booking_id', async(req, res)=>{
 	try {
 	const searchId = req.params.booking_id;
 	// const bookingId = await reservationModel.findOne({"booking_id": {$regex: searchId, $options: "i"}});
-	const bookingId = await reservationModel.findOne({"booking_id": {new RegExp(searchId, "i")}});
+	const bookingId = await reservationModel.findOne({"booking_id": new RegExp(searchId, "i")});
 	if(bookingId === null){
 		res.status(404).json({
 			code: 404, 
