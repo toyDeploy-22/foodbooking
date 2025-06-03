@@ -15,7 +15,7 @@ function getNewObj(obj) {
         return newObj;
 }
 
-function firstLaunchCheck(seat, emails) { 
+function firstLaunchCheck(seat) { 
 
         const result = {};
         const newSeat = getNewObj(seat);
@@ -45,6 +45,7 @@ function firstLaunchCheck(seat, emails) {
         // client_legalAge is boolean
         if(client_legalAge) {
 
+        /*
         if(emails.indexOf(client_email.toLowerCase()) > -1) {
         
         result.ok = "false";
@@ -57,7 +58,9 @@ function firstLaunchCheck(seat, emails) {
         
         return result
 
-        } else if(seat.hasGuests && totalGuests.indexOf(client_guests) > -1 || !seat.hasGuests && client_guests === 0 ) {
+        } else */
+        
+        if(seat.hasGuests && totalGuests.indexOf(client_guests) > -1 || !seat.hasGuests && client_guests === 0 ) {
 
         reservation.fname = client_fname;
 	reservation.lname = client_lname;
@@ -168,10 +171,10 @@ function secondLaunchCheck(seat, dishes) {
 // status: true, id: '', section: '', title: '', msg: ''
 
 
-async function sendBooking(obj, arr, emails) {
+async function sendBooking(obj, arr) {
 
 try {
-        const firstCheck = firstLaunchCheck(obj, emails);
+        const firstCheck = firstLaunchCheck(obj);
         console.log(firstCheck)
         if(firstCheck.ok === "false") {
                 return firstCheck

@@ -5,7 +5,7 @@ import BookingDetails from './Components/BookingDetails.jsx';
 import NotFound from './Components/NotFound.jsx';
 import reasons from './Functions/reasons.js';
 
-function App3({ meals, emails }) {
+function App3({ meals }) {
     
 const domain = "reservation";
 
@@ -13,7 +13,6 @@ return(
 <Routes>
 <Route path={`${domain}/bookingform`} element={<ReservationPage meals={ meals } 
 info={ reasons }
-emails={ emails }
 />} />
 <Route exact path={`${domain}/search`} element={<BookingSearch />} />
 <Route path={`${domain}/search/:booking_id`} element={<BookingDetails meals={ meals } />} />

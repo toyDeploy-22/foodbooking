@@ -2,19 +2,15 @@
 import Express from 'express';
 import mongoose from 'mongoose';
 import allDishes from '../Src/All_Dishes.js';
-import reservationModel from '../Functions/reservationSchema.js';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const dishRoute = Express.Router();
 
-dishRoute.options("/alldishes")
-dishRoute.get("/alldishes", async(req, res)=>{
+dishRoute.get("/alldishes", (req, res)=>{
 	try {
-		const allBookings = await reservationModel.find({});
 		res.json({ 
-			dishes: allDishes,
-			bookings: allBookings 
+			dishes: allDishes
 			})
 	} catch(err) {
 		console.error(err);
