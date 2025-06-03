@@ -159,7 +159,8 @@ const editData = async() => {
     }
     */
 
-    const editBody = await editBooking(bookingDetails);
+    const editBody = await editBooking(bookingDetails, [guestDishes]);
+
     switch(editBody.code) {
       case 400:
       case 401: 
@@ -397,7 +398,7 @@ useEffect(()=>{
         code: 200,
         title: "success",
         msg: ""}
-        
+
       setLoader(false);
       const newUser = bookingFetch.data;
       setBookingDetails(()=>newUser);
