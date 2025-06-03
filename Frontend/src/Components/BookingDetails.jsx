@@ -18,6 +18,9 @@ import { getErrVariant } from '../Functions/setStyles.js';
 import reasons from '../Functions/reasons.js';
 import { getAllVariants } from '../Functions/setStyles.js';
 
+// 3r party
+import axios from 'axios';
+
 //elements
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
@@ -381,21 +384,22 @@ useEffect(()=>{
   const getBooking = async() => {
   try {
   setLoader(true);
-  const bookingFetch = await fetch(`${BKhost}/reservation/search/${booking_id}`);
+  const bookingFetch = await axios({
+    method: 'get', url: `${BKhost}/reservation/search/${booking_id}`});
 
   if(bookingFetch.status === 404){
     const obj = notFoundError(booking_id)
     setLoader(false);
     setError(()=>obj)
-    } else if(bookingFetch.status === 200) {
+    } else if(bookingFetch.status <= 200 || bookingFetch > 300) {
       const success = {
         err: false,
         code: 200,
         title: "success",
         msg: ""}
-      const bookingCard = await bookingFetch.json();
+        
       setLoader(false);
-      const newUser = bookingCard._doc;
+      const newUser = bookingFetch.data;
       setBookingDetails(()=>newUser);
       // setUserDish(newUser.dishes_selected[0].name);
       setAllMeals(()=>meals);
