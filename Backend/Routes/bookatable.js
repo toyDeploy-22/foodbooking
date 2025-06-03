@@ -106,15 +106,15 @@ bookatable.get('/search/:booking_id', async(req, res)=>{
 	result = new Object();
 	try {
 	const searchId = req.params.booking_id;
-	// const bookingId = await reservationModel.findOne({"booking_id": {$regex: searchId, $options: "i"}});
+	// const bookingId = await reservationModel.findOne({"booking_id": {$regex: searchId, $options: "i"}}); // findone+regexp Does not work on vercel
 	const bookingId = await reservationModel.find({"booking_id": new RegExp(searchId, "i")});
-	if(bookingId === null){
+	if(bookingId.length === 0){
 		res.status(404).json({
 			code: 404, 
 			title: "Unknown Booking ID", 
 			msg: `Booking id ${searchId} not found.`});
 		}else{	
-		res.json({...bookingId})	
+		res.json(bookingId[0])	
 		}
 	} catch (err) {
 		console.error(err);
