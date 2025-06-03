@@ -1,11 +1,12 @@
 
 import Express from 'express';
-import mongoose from 'mongoose';
+import cors from 'cors';
 import allDishes from '../Src/All_Dishes.js';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const dishRoute = Express.Router();
+
 
 dishRoute.get("/alldishes", (req, res)=>{
 	try {
@@ -73,8 +74,8 @@ dishRoute.get("/name", (req, res)=>{
 	}
 });
 
-dishRoute.options('/dish-illustration/:dishid')
-dishRoute.get('/dish-illustration/:dishid', (req, res) => {
+dishRoute.options('/dish-illustration/:dishid', cors())
+dishRoute.get('/dish-illustration/:dishid', cors(), (req, res) => {
 	try {
 		const imgFolder = join(dirname(fileURLToPath(import.meta.url)), '..', 'Src', 'dishes_Pictures');
 		const id = req.params.dishid;

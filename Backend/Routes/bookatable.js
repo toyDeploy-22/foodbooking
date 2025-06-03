@@ -11,8 +11,8 @@ bookatable.use(cors());
 
 let result;
 
-bookatable.options('/new-table')
-bookatable.post('/new-table', async(req, res) => {
+bookatable.options('/new-table', cors())
+bookatable.post('/new-table', cors(), async(req, res) => {
 	result = new Object();
 	try {
 		const requiredProps = ["fname", "lname", "email", "phone", "guests", "dishes", "smoking", "bookDay", "bookTime", "legalAge"];
@@ -101,8 +101,8 @@ bookatable.post('/new-table', async(req, res) => {
 	}	
 });
 
-bookatable.options('/search')
-bookatable.get('/search/:booking_id', async(req, res)=>{
+bookatable.options('/search/:booking_id', cors())
+bookatable.get('/search/:booking_id',cors(), async(req, res)=>{
 	result = new Object();
 	try {
 	const searchId = req.params.booking_id;
@@ -156,8 +156,8 @@ bookatable.get('/allreservation_email/:email', async(req, res)=>{
 */
 
 
-bookatable.options('/new-table-edition/:booking_id')
-bookatable.patch('/new-table-edition/:booking_id', async(req, res) => {
+bookatable.options('/new-table-edition/:booking_id', cors())
+bookatable.patch('/new-table-edition/:booking_id', cors(), async(req, res) => {
 	result = new Object();
 	try {
 		// 1 - Get body and params
@@ -286,8 +286,8 @@ bookatable.patch('/new-table-edition/:booking_id', async(req, res) => {
 	}
 });
 
-bookatable.options('/dishes-selected-edition/:booking_id')
-bookatable.patch('/dishes-selected-edition/:booking_id', async(req, res)=>{
+bookatable.options('/dishes-selected-edition/:booking_id', cors())
+bookatable.patch('/dishes-selected-edition/:booking_id', cors(), async(req, res)=>{
 	result = new Object();
 	try {
 		
@@ -346,8 +346,8 @@ bookatable.patch('/dishes-selected-edition/:booking_id', async(req, res)=>{
 	}
 })
 
-bookatable.options('/new-table-deletion/:booking_id')
-bookatable.delete('/new-table-deletion/:booking_id', async(req, res) => {
+bookatable.options('/new-table-deletion/:booking_id', cors())
+bookatable.delete('/new-table-deletion/:booking_id', cors(), async(req, res) => {
 	result = new Object();
 	try {
 		const bookingId = req.params.booking_id;

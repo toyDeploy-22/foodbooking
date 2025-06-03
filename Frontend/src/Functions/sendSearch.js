@@ -15,7 +15,6 @@ try {
 const url = `https://foodbooking-backend.vercel.app/reservation/search/${id}`;
 
 const fetcher = await axios.get(url);
-console.log(fetcher.data)
 
 let status = fetcher.status;
 

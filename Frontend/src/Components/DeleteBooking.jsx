@@ -6,7 +6,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Spinner from 'react-bootstrap/Spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
-import { faUtensils } from '@fortawesome/free-solid-svg-icons';
+import { faTrashArrowUp } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Link } from 'react-router-dom';
@@ -127,7 +127,6 @@ function DeleteBooking() {
     <br /><br />
     <Stack 
     direction="horizontal" className="p-2 justify-content-center fw-bold lead" gap={3} style={{backgroundColor: '#552c68', borderRadius: '5px 20px 5px'}}>
-    <div className="p-2"><FontAwesomeIcon icon={faUtensils} size="lg" style={{color: "#23bea4",}} /></div>
       <div className="p-2 text-light">{user.last_name} {user.first_name}</div>
       <div className="p-2 text-light">{user.bookDay}{' for '} {user.bookTime}</div>
       <div className="vr" />
@@ -141,6 +140,7 @@ function DeleteBooking() {
       :
       <div className="p-2 text-light h6">This reservation has no comment.</div>
       }
+<FontAwesomeIcon icon={faTrashArrowUp} spin size="lg" style={{color: "#db0a0a"}} />
       </Stack>
       </div>
     }
