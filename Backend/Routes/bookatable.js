@@ -101,12 +101,13 @@ bookatable.post('/new-table', async(req, res) => {
 	}	
 });
 
-bookatable.options('/search/:booking_id')
+bookatable.options('/search')
 bookatable.get('/search/:booking_id', async(req, res)=>{
 	result = new Object();
 	try {
 	const searchId = req.params.booking_id;
-	const bookingId = await reservationModel.findOne({"booking_id": {$regex: searchId, $options: "i"}});
+	// const bookingId = await reservationModel.findOne({"booking_id": {$regex: searchId, $options: "i"}});
+	const bookingId = await reservationModel.findOne({"booking_id": {new RegExp(searchId, "i")}});
 	if(bookingId === null){
 		res.status(404).json({
 			code: 404, 

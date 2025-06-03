@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import ReservationPage from './Components/ReservationPage.jsx';
 import BookingSearch from "./Components/BookingSearch.jsx";
 import BookingDetails from './Components/BookingDetails.jsx';
+import DeleteBooking from "./Functions/deleteBooking.js";
 import NotFound from './Components/NotFound.jsx';
 import reasons from './Functions/reasons.js';
 
@@ -16,6 +17,8 @@ info={ reasons }
 />} />
 <Route exact path={`${domain}/search`} element={<BookingSearch />} />
 <Route path={`${domain}/search/:booking_id`} element={<BookingDetails meals={ meals } />} />
+<Route exact path={`${domain}/delete`} element={<DeleteBooking />} />
+<Route path={`${domain}/delete/:booking_id`} element={<BookingDetails meals={ meals } />} />
 <Route path='reservation/*' element={<NotFound />} />
 </Routes>)
 }
