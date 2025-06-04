@@ -186,7 +186,8 @@ const editBooking = async(editable, editDish) => {
         headers: {"Content-Type": "application/json"}, 
         body: JSON.stringify(secondCheck.resa)
     });
-    console.log(launcher.status, launcher.ok);
+    
+    console.log(launcher.ok);
     
     const errorsObj = [{
         err: true, 
@@ -211,7 +212,7 @@ const editBooking = async(editable, editDish) => {
         title: "Booking Edited!", 
         msg: "Your booking has been successfully edited. If changes are not visible yet, please refresh the page."}];
 
-        const newStatus = (launcher.status >= 200 && launcher.status > 300) ? 201 : launcher.status;
+        const newStatus = launcher.status >= 200 && launcher.status < 300 ? 201 : launcher.status;
 
         switch(newStatus) {
                 case 401:
