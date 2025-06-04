@@ -219,19 +219,13 @@ const editBooking = async(editable, editDish) => {
 
         switch(newStatus) {
                 case 401:
-                Object.assign(result, errorsObj.filter((err) => err.code === 401)[0]);
-                break;
-                
                 case 404:
-                Object.assign(result, errorsObj.filter((err) => err.code === 404)[0]);
-                break;        
-                
                 case 201:
-                Object.assign(result, errorsObj.filter((err) => err.code === 201)[0]);
+                Object.assign(result, errorsObj.filter((err) => err.code === newStatus)[0]);
                 break;
 
                 default: 
-                if(launcher.ok) {
+                if(launcher.ok === true) {
                 Object.assign(result, errorsObj.filter((err) => err.code === 201)[0]);
                 } else {
                 Object.assign(result, errorsObj.filter((err) => err.code === 500)[0]);
