@@ -40,13 +40,24 @@ function getNewObj(obj) {
 
 function firstLaunchCheck(seat, dishes) { 
 
+try {   const schema = ["legalAge", "booking_id", "first_name", "last_name", "email", "phone", "guests", "smoking", "bookDay", "bookTime"];
+const mandatoryKeys = schema.filter((k, _ind) => k !== seat[_ind]);
+        if(mandatoryKeys.length > 0) {
+        
+        result.err = true;
+        result.code = 401;
+        result.title = 'Incomplete data';
+        result.msg = 'Some required fields are empty. Please make sure that all required fields are completed in order to save the data.';
+        
+        return result;
+
+        } else {
         const result = {};
         const newSeat = getNewObj(seat);
         const requiredKeys = Object.values(newSeat);
 
         const { legalAge, booking_id, first_name, last_name, email, phone, guests, smoking, bookDay, bookTime } = newSeat;
 
-        try { 
         const reservation = {};
 
         if(requiredKeys.indexOf('') > -1) {
@@ -89,7 +100,7 @@ function firstLaunchCheck(seat, dishes) {
                 result.resa = reservation;
                 return result;
 
-        }} catch (err) {
+        }}} catch (err) {
         
         const catchSchema = {
         err: true,
