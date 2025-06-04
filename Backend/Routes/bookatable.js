@@ -109,7 +109,7 @@ bookatable.get('/search/:booking_id', cors(), async(req, res)=>{
 	// const bookingId = await reservationModel.findOne({"booking_id": {$regex: searchId, $options: "i"}}); 
 	// issues with findOne on vercel
 	const bookingId = await reservationModel.find({"booking_id": new RegExp(searchId, "i")});
-	if(bookingId.length === 0){
+	if(!bookingId){
 		res.status(404).json({
 			code: 404, 
 			title: "Unknown Booking ID", 
@@ -186,14 +186,17 @@ bookatable.patch('/new-table-edition/:booking_id', cors(), async(req, res) => {
 		
 		// 2 - Find booking to grab non modificable data and check if has been modified
 		
-		const finder = await reservationModel.find({"booking_id": new RegExp(bookingId, "i")})[0];
+		const data = await reservationModel.find({"booking_id": new RegExp(bookingId, "i")});
 		// if no result finder will be null datatype
-		if(!finder){
+		if(!data){
 			res.status(404).json({
 			code: 404, 
 			title: "Unknown Booking ID", 
 			msg: `Booking is not editable because it does not exist.`});
 		} else {
+		
+		const finder = data[0];
+		
 		const checkEdit = {
 		booking_id: finder.booking_id, // value will always be a set of string numbers
 		guests: finder.guests, // Has to be the same number

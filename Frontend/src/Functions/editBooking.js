@@ -48,8 +48,6 @@ try {
         
         const mandatoryKeys = schema.filter((k) => seatKeys.indexOf(k) === -1);
 
-        console.log(mandatoryKeys)
-
         if(mandatoryKeys.length > 0) {
         
         result.err = true;
@@ -216,6 +214,8 @@ const editBooking = async(editable, editDish) => {
         msg: "Your booking has been successfully edited. If changes are not visible yet, please refresh the page."}];
 
         const newStatus = launcher.status >= 200 && launcher.status > 300 ? 201 : launcher.status;
+
+        console.log(newStatus)
 
         switch(newStatus) {
                 case 401:
