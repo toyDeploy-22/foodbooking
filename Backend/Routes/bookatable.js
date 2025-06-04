@@ -102,13 +102,14 @@ bookatable.post('/new-table', cors(), async(req, res) => {
 });
 
 bookatable.options('/search/:booking_id', cors())
-bookatable.get('/search/:booking_id',cors(), async(req, res)=>{
+bookatable.get('/search/:booking_id', cors(), async(req, res)=>{
 	result = new Object();
 	try {
 	const searchId = req.params.booking_id;
-	// const bookingId = await reservationModel.findOne({"booking_id": {$regex: searchId, $options: "i"}}); // findone+regexp Does not work on vercel
+	// const bookingId = await reservationModel.findOne({"booking_id": {$regex: searchId, $options: "i"}}); 
+	// issues with findOne on vercel
 	const bookingId = await reservationModel.find({"booking_id": new RegExp(searchId, "i")});
-	if(bookingId.length === 0){
+	if(!bookingId[0]){
 		res.status(404).json({
 			code: 404, 
 			title: "Unknown Booking ID", 
