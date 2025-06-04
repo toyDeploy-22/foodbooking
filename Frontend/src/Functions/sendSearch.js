@@ -24,7 +24,7 @@ if(status < 200 || status >= 300) {
     result.data = [];
     return result
 } else {
-     const data = getResaSchema(fetcher.data); // obj
+     const data = getResaSchema(fetcher.data[0]); // obj
     result.ok = true;
     result.code = status;
     result.data = [data] // array of obj
