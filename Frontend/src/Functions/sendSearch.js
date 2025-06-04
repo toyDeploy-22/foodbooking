@@ -24,6 +24,7 @@ if(status < 200 || status >= 300) {
     result.data = [];
     return result
 } else {
+    console.log(fetcher.data, typeof fetcher.data)
      const data = getResaSchema(fetcher.data);
     result.ok = true;
     result.code = status;
