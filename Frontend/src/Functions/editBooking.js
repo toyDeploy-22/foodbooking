@@ -42,9 +42,9 @@ function firstLaunchCheck(seat, dishes) {
 
 try {   
 
-        const schema = ["booking_id", "first_name", "last_name", "email", "phone", "smoking", "bookDay", "bookTime"];
+        const schema = ["legalAge", "booking_id", "first_name", "last_name", "email", "phone", "smoking", "bookDay", "bookTime"].sort();
         
-        const seatKeys = Object.keys(seat);
+        const seatKeys = Object.keys(seat).sort();
         
         const mandatoryKeys = schema.filter((k, _ind, arr) => arr.indexOf(seatKeys[_ind]) === -1);
 
