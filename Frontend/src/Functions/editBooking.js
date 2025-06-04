@@ -179,8 +179,6 @@ const editBooking = async(editable, editDish) => {
         
     // const url = `http://localhost:5000/reservation/new-table-edition/${secondCheck.resa.booking_id}`;
 
-    console.log(secondCheck.resa);
-
     const url = `https://foodbooking-backend.vercel.app/reservation/new-table-edition/${secondCheck.resa.booking_id}`;
 
     const launcher = await fetch(url, {
@@ -188,7 +186,7 @@ const editBooking = async(editable, editDish) => {
         headers: {"Content-Type": "application/json"}, 
         body: JSON.stringify(secondCheck.resa)
     });
-    console.log(launcher.ok);
+    console.log(launcher.status, launcher.ok);
     
     const errorsObj = [{
         err: true, 
@@ -213,9 +211,7 @@ const editBooking = async(editable, editDish) => {
         title: "Booking Edited!", 
         msg: "Your booking has been successfully edited. If changes are not visible yet, please refresh the page."}];
 
-        const newStatus = launcher.status >= 200 && launcher.status > 300 ? 201 : launcher.status;
-
-        console.log(newStatus)
+        const newStatus = (launcher.status >= 200 && launcher.status > 300) ? 201 : launcher.status;
 
         switch(newStatus) {
                 case 401:
