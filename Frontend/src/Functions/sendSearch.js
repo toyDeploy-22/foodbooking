@@ -11,6 +11,7 @@ const findSearch = async(id) => {
 let result = {};
 
 try {
+    console.log(id)
 // const url = `http://localhost:5000/reservation/search/${id}`;
 const url = `https://foodbooking-backend.vercel.app/reservation/search/${id}`;
 
@@ -24,7 +25,7 @@ if(status < 200 || status >= 300) {
     result.data = [];
     return result
 } else {
-     const data = getResaSchema(fetcher.data[0]); // obj
+     const data = getResaSchema(fetcher.data); // obj
     result.ok = true;
     result.code = status;
     result.data = [data] // array of obj
