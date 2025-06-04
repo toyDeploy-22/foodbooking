@@ -41,7 +41,8 @@ function getNewObj(obj) {
 function firstLaunchCheck(seat, dishes) { 
 
 try {   const schema = ["legalAge", "booking_id", "first_name", "last_name", "email", "phone", "guests", "smoking", "bookDay", "bookTime"];
-const mandatoryKeys = schema.filter((k, _ind) => k !== seat[_ind]);
+const seatKeys = Object.keys(seat);
+const mandatoryKeys = schema.filter((k, _ind, arr) => arr.indexOf(seatKeys[_ind]));
         if(mandatoryKeys.length > 0) {
         
         result.err = true;
