@@ -46,7 +46,7 @@ try {
         
         const seatKeys = Object.keys(seat).sort();
         
-        const mandatoryKeys = schema.filter((k, _ind, arr) => arr.indexOf(seatKeys[_ind]) === -1);
+        const mandatoryKeys = schema.filter((k) => seatKeys.indexOf(k) === -1);
 
         console.log(mandatoryKeys)
 
