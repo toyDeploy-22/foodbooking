@@ -107,9 +107,11 @@ bookatable.get('/search/:booking_id', cors(), async(req, res)=>{
 	try {
 	const searchId = req.params.booking_id;
 	// const bookingId = await reservationModel.findOne({"booking_id": {$regex: searchId, $options: "i"}}); 
+	// findOne unsuccessful throws null
+	// find unsuccessful throws empty array
 	// issues with findOne on vercel
 	const bookingId = await reservationModel.find({"booking_id": new RegExp(searchId, "i")});
-	if(bookingId.length == 0){
+	if(bookingId.length == 0){	// === 0 throws timeout
 		res.status(404).json({
 			code: 404, 
 			title: "Unknown Booking ID", 
@@ -188,7 +190,7 @@ bookatable.patch('/new-table-edition/:booking_id', cors(), async(req, res) => {
 		
 		const data = await reservationModel.find({"booking_id": new RegExp(bookingId, "i")});
 		// if no result finder will be null datatype
-		if(!data){
+		if(data.length == 0){ // === 0 throws timeout
 			res.status(404).json({
 			code: 404, 
 			title: "Unknown Booking ID", 
