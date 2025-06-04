@@ -162,6 +162,8 @@ const editBooking = async(editable, editDish) => {
         
     // const url = `http://localhost:5000/reservation/new-table-edition/${secondCheck.resa.booking_id}`;
 
+    console.log(secondCheck.resa);
+
     const url = `https://foodbooking-backend.vercel.app/reservation/new-table-edition/${secondCheck.resa.booking_id}`;
 
     const launcher = await fetch(url, {

@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 // or can be import {useParams} from 'react-router-dom';
 import Figure from 'react-bootstrap/Figure';
