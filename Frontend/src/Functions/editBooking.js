@@ -42,7 +42,7 @@ function firstLaunchCheck(seat, dishes) {
 
 try {   
 
-        const schema = ["legalAge", "booking_id", "first_name", "last_name", "email", "phone", "guests", "smoking", "bookDay", "bookTime"];
+        const schema = ["booking_id", "first_name", "last_name", "email", "phone", "smoking", "bookDay", "bookTime"];
         
         const seatKeys = Object.keys(seat);
         
