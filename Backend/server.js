@@ -46,6 +46,18 @@ myServer.use(Express.json());
 myServer.use(cors());
 // myServer.use(Express.static(join(dirname(fileURLToPath(import.meta.url)), "Src", "dishes_Pictures")));
 
+myServer.use("/", () => {
+	let response;
+	const dbData = {...mongoStats};
+	
+		response.headers.set('db-Service', dbData.dbService);
+		response.headers.set('db-Name',dbData.dbName);
+		response.headers.set('db-Host', dbData.dbHost);
+		response.headers.set('db-Port', dbData.dbPort);
+		
+	return response.headers.set	
+})
+
 myServer.get("/", (req, res) => {
 	
 		/*
@@ -58,14 +70,14 @@ myServer.get("/", (req, res) => {
 			res.status(500).json({ ok: false, title: 'Mongo Connection failed', msg: details.error })
 			
 		} else {
-			
+		/*
 		const dbData = {...mongoStats};
 		
 		res.headers.set('db-Service', dbData.dbService);
 		res.headers.set('db-Name',dbData.dbName);
 		res.headers.set('db-Host', dbData.dbHost);
 		res.headers.set('db-Port', dbData.dbPort)
-		
+		*/
 		res.sendFile(htmlSuccessPage)
 		}
 });
