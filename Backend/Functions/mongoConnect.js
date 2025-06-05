@@ -8,7 +8,8 @@ async function mongoConnect(url) {
     console.log("MONGO already connected");
     return;
   } else {
-	const opts = {dbName: 'restaurant', autoIndex: false, serverSelectionTimeoutMS: 5000, bufferCommands: false};
+	const opts = {dbName: 'restaurant', autoIndex: false, serverSelectionTimeoutMS: 5000 // bufferCommands: false
+	};
 	const conn = await mongoose.connect(url, opts);
 	return conn
   }} catch(err) {

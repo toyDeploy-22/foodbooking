@@ -7,7 +7,7 @@ import Express from 'express';
 import cors from "cors";
 // import mongoose from 'mongoose';
 
-const { MY_PORT, MONGO_URI, MONGO_URI_VERCEL } = process.env;
+const { MONGO_URI_VERCEL } = process.env;
 
 const bookatable = Express.Router();
 bookatable.use(cors());
@@ -414,8 +414,7 @@ bookatable.delete('/new-table-deletion/:booking_id', cors(), async(req, res) => 
 		res.setHeader("Object", "Deletion success");
 		res.status(result.code).json(result);
 		}
-	}
-	catch(err) {
+	} catch(err) {
 		console.error(err);
 		result.code = 500;
 		result.title = "Database Edition Issue";
