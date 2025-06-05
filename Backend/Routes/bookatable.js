@@ -108,7 +108,8 @@ bookatable.post('/new-table', cors(), async(req, res) => {
 		res.setHeader("Object", "Booking Accepted");
 		res.status(result.code).json(result);
 		
-	}} catch(err) {
+		}} 
+	} catch(err) {
 
 		// result
 		console.error(err);
