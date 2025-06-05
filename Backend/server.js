@@ -46,17 +46,16 @@ myServer.use(Express.json());
 myServer.use(cors());
 // myServer.use(Express.static(join(dirname(fileURLToPath(import.meta.url)), "Src", "dishes_Pictures")));
 
-myServer.use("/", (req, res, next) => {
-
-	const dbData = {...mongoStats};
+myServer.use(express.static('./', {
+  setHeaders: function(res) {
+    const dbData = {...mongoStats};
 	
-		res.setHeader('db-Service', dbData.dbService);
-		res.setHeader('db-Name',dbData.dbName);
-		res.setHeader('db-Host', dbData.dbHost);
-		res.setHeader('db-Port', dbData.dbPort);
-		
-	next();
-})
+		res.set('db-Service', dbData.dbService);
+		res.set('db-Name',dbData.dbName);
+		res.set('db-Host', dbData.dbHost);
+		res.set('db-Port', dbData.dbPort);
+  }
+}));
 
 myServer.get("/", (req, res) => {
 	
