@@ -61,10 +61,10 @@ myServer.get("/", (req, res) => {
 			
 		const dbData = {...mongoStats};
 		
-		res.headers('db-Service', dbData.dbService);
-		res.headers('db-Name',dbData.dbName);
-		res.headers('db-Host', dbData.dbHost);
-		res.headers('db-Port', dbData.dbPort)
+		res.headers.set('db-Service', dbData.dbService);
+		res.headers.set('db-Name',dbData.dbName);
+		res.headers.set('db-Host', dbData.dbHost);
+		res.headers.set('db-Port', dbData.dbPort)
 		
 		res.sendFile(htmlSuccessPage)
 		}
