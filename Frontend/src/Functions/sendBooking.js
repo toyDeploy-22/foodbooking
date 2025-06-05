@@ -44,21 +44,6 @@ function firstLaunchCheck(seat) {
         
         // client_legalAge is boolean
         if(client_legalAge) {
-
-        /*
-        if(emails.indexOf(client_email.toLowerCase()) > -1) {
-        
-        result.ok = "false";
-        result.title = 'Duplicate Email';
-        result.msg = [{
-        status: false,
-        id: '034',
-        section: "Email Already Exists",
-        msg: `The booking request cannot be sent because there is already a pending booking under the email address '${client_email}'. You can modify or delete your pending booking before confirming a new one.`}];
-        
-        return result
-
-        } else */
         
         if(seat.hasGuests && totalGuests.indexOf(client_guests) > -1 || !seat.hasGuests && client_guests === 0 ) {
 
@@ -234,6 +219,14 @@ try {
                 section: "Success",
                 msg: 'Your booking has been successfully sent !'
                 }]
+        } else if(bookerData.data.title === 'Duplicate Email Booking') {
+                result.ok = "false";
+                result.title = 'Duplicate Email';
+                result.msg = [{
+                status: false,
+                id: '034',
+                section: "Email Already Exists",
+                msg: `The booking request cannot be sent because there is already a pending booking under the email address '${client_email}'. You can modify or delete your pending booking before confirming a new one.`}];
         } else {
                 result.ok = "false";
                 result.title = 'Unauthorized';

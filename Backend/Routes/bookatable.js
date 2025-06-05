@@ -18,6 +18,9 @@ bookatable.options('/new-table', cors())
 bookatable.post('/new-table', cors(), async(req, res) => {
 	result = new Object();
 	try {
+		
+		await mongoConnect(MONGO_URI_VERCEL);
+		
 		const requiredProps = ["fname", "lname", "email", "phone", "guests", "dishes", "smoking", "bookDay", "bookTime", "legalAge"];
 		const missProps = requiredProps.filter((key) => !req.body.hasOwnProperty(key));
 		
@@ -66,6 +69,20 @@ bookatable.post('/new-table', cors(), async(req, res) => {
 		res.setHeader("Object", "Booking Failed");
 		res.status(result.code).json(result);
 		}
+		
+		const finder = await reservationModel({"email": newData['email']});
+		
+		if(finder.length > 0) {
+		
+		result.code = 401;
+		result.title = 'Duplicate Email Booking';
+		result.msg = ("Booking cannot be saved because there is already a pending booking under '" + email + "' email.");
+		
+		res.setHeader("Object", "Booking Failed");
+		res.status(result.code).json(result);
+		} else {
+			
+		await mongoConnect(MONGO_URI_VERCEL);
 		
 		const newBooking = new reservationModel(newData);
 		const countBooking = await reservationModel.estimatedDocumentCount({});
@@ -117,7 +134,7 @@ bookatable.get('/search/:booking_id', cors(), async(req, res)=>{
 	// find unsuccessful throws empty array
 	// issues with findOne on vercel
 	const bookingId = await reservationModel.find({"booking_id": new RegExp(searchId, "i")});
-	if(bookingId.length == 0){	// === 0 throws timeout
+	if(bookingId.length === 0){	// === 0 throws timeout
 		res.status(404).json({
 			code: 404, 
 			title: "Unknown Booking ID", 
@@ -169,6 +186,8 @@ bookatable.options('/new-table-edition/:booking_id', cors())
 bookatable.patch('/new-table-edition/:booking_id', cors(), async(req, res) => {
 	result = new Object();
 	try {
+		await mongoConnect(MONGO_URI_VERCEL);
+		
 		// 1 - Get body and params
 		const bookingId = req.params.booking_id;
 		
@@ -196,7 +215,7 @@ bookatable.patch('/new-table-edition/:booking_id', cors(), async(req, res) => {
 		
 		const data = await reservationModel.find({"booking_id": new RegExp(bookingId, "i")});
 		// if no result finder will be null datatype
-		if(data.length == 0){ // === 0 throws timeout
+		if(data.length === 0){ // === 0 throws timeout
 			res.status(404).json({
 			code: 404, 
 			title: "Unknown Booking ID", 
@@ -256,16 +275,23 @@ bookatable.patch('/new-table-edition/:booking_id', cors(), async(req, res) => {
 		result.code = 401;
 		result.title = "Unautorized";
 		result.msg = no_editableKey.length > 1 ? `The values of the ${no_editableKey.join(", ")} cannot be edited. Please change these as default in order to proceed.` : `The property ${no_editableKey} cannot be modified. Please change it as it was previously to confirm your edition.` ;
+		
 		res.setHeader("Object", "Db Edition Failed");
-		res.status(result.code).json(result);		
+		res.status(result.code).json(result);	
+		
 		} else if (dishOccurences.occurences > 0) {
+			
 		result.code = 401;
 		result.title = "Unautorized";
 		result.msg = "Cannot change your dishes selection here. Please go to the dishes field list if you want to change your menu or the guest one." 
+		
 		res.setHeader("Object", "Db Edition Failed");
 		res.status(result.code).json(result);
 			
 		} else {
+		
+		await mongoConnect(MONGO_URI_VERCEL);
+		
 		const updater = await reservationModel.findOneAndUpdate({booking_id: new RegExp(no_userEditable['booking_id'], "i")}, {...editable})
 		
 		if(!updater) {
@@ -275,6 +301,7 @@ bookatable.patch('/new-table-edition/:booking_id', cors(), async(req, res) => {
 
 		res.setHeader("Object", "Edition Exception");
 		res.status(result.code).json(result);	
+		
 		} else {
 		result.code = 201;
 		result.title = "Edition Successful";
@@ -313,17 +340,21 @@ bookatable.patch('/dishes-selected-edition/:booking_id', cors(), async(req, res)
 		result.code = 401;
 		result.title = "Unautorized";
 		result.msg = "Cannot proceed further. Please make sure that a dish is selected in each list";
-		res.setHeader("Object", "Dishes Edition Stopped");
 		
+		res.setHeader("Object", "Dishes Edition Stopped");
 		res.status(result.code).json(result)	
+		
 		} else if(!checker1) {
+			
 		result.code = 401;
 		result.title = "Unautorized";
 		result.msg = "You must add from 1 to 10 dish(es) in order for your booking to be confirmed.";
-		res.setHeader("Object", "Dishes Edition Unauthorized");
 		
+		res.setHeader("Object", "Dishes Edition Unauthorized");
 		res.status(result.code).json(result)
+		
 		} else if(checker2.length > 0) {
+			
 		result.code = 401;
 		result.title = "Unautorized";
 		result.msg = `It seems that ${checker2.join(",")} appear in our list and is not recognized.`;
@@ -331,6 +362,8 @@ bookatable.patch('/dishes-selected-edition/:booking_id', cors(), async(req, res)
 		
 		res.status(result.code).json(result)
 		} else {
+			
+		await mongoConnect(MONGO_URI_VERCEL);
 		const mongoQuery = await reservationModel.findOneAndUpdate({booking_id: bookingId}, {$set: {dishes_selected: newDishes}}); // if not found, returns null
 		
 		if(!mongoQuery) {
@@ -339,8 +372,8 @@ bookatable.patch('/dishes-selected-edition/:booking_id', cors(), async(req, res)
 		result.msg = `The dishes selected cannot be edited because it was not found. The booking may have been deleted`;
 
 		res.setHeader("Object", "Dishes Edition Error");
+		res.status(result.code).json(result)
 		
-		res.status(result.code).json(result);	
 		} else {	
 		result.title = "Dishes Edition Success";
 		result.msg = 'The dishes selection has been successfully edited.'
@@ -363,6 +396,8 @@ bookatable.delete('/new-table-deletion/:booking_id', cors(), async(req, res) => 
 	result = new Object();
 	try {
 		const bookingId = req.params.booking_id;
+		
+		await mongoConnect(MONGO_URI_VERCEL);
 		const finder = await reservationModel.findOneAndDelete({"booking_id": bookingId});
 		if(!finder) {
 			res.status(404).json({
