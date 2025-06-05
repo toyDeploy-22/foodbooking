@@ -53,10 +53,7 @@ myServer.use(Express.static('./', {
 		res.set('db-Port', dbData.dbPort);
   }
 }));
-myServer.use(cors({
-	allowedHeaders: ['db-Service', 'db-Name', 'db-Host', 'db-Port'],
-	exposedHeaders: ['db-Service', 'db-Name', 'db-Host', 'db-Port']
-}));
+myServer.use(cors());
 // myServer.use(Express.static(join(dirname(fileURLToPath(import.meta.url)), "Src", "dishes_Pictures")));
 
 myServer.get("/", (req, res) => {

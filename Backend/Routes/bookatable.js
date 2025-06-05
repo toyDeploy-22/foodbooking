@@ -1,10 +1,13 @@
 //local
 import reservationModel from '../Functions/reservationSchema.js';
 import {validator_bookTime, verifyDishes} from '../Functions/validatorSchema.js';
+import { mongoConnect } from '../Functions/mongoConnect.js';
 // 3rd party
 import Express from 'express';
 import cors from "cors";
 // import mongoose from 'mongoose';
+
+const { MY_PORT, MONGO_URI, MONGO_URI_VERCEL } = process.env;
 
 const bookatable = Express.Router();
 bookatable.use(cors());
@@ -105,6 +108,9 @@ bookatable.options('/search/:booking_id', cors())
 bookatable.get('/search/:booking_id', cors(), async(req, res)=>{
 	result = new Object();
 	try {
+	
+	await mongoConnect(MONGO_URI_VERCEL);
+	
 	const searchId = req.params.booking_id;
 	// const bookingId = await reservationModel.findOne({"booking_id": {$regex: searchId, $options: "i"}}); 
 	// findOne unsuccessful throws null
