@@ -46,7 +46,7 @@ myServer.use(Express.json());
 myServer.use(cors());
 // myServer.use(Express.static(join(dirname(fileURLToPath(import.meta.url)), "Src", "dishes_Pictures")));
 
-myServer.use(express.static('./', {
+myServer.use(Express.static('./', {
   setHeaders: function(res) {
     const dbData = {...mongoStats};
 	
