@@ -81,7 +81,7 @@ myServer.listen(MY_PORT, () => {
 	
 	details.then(() => 
 		console.log("Step 2: ", successMsg)
-	})
+	)
 	.catch((err)=>console.error(JSON.stringify(failureMsg(err))))
 	});
 
