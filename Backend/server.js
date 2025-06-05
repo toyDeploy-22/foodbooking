@@ -67,6 +67,7 @@ myServer.get("/", (req, res) => {
 		res.setHeader('db-Port', dbData.dbPort)
 		
 		res.sendFile(htmlSuccessPage)
+		}
 });
 
 routes.forEach((r) => myServer.use(r.route, r.path));
