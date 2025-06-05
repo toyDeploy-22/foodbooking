@@ -1,19 +1,19 @@
 import mongoose from "mongoose";
 
 async function mongoConnect(url) { 
-	
-	  if (mongoose.connection.readyState === 1) {
-    console.log("MONGO already connected");
-    return;
-  }
   
   try {
+	 
+	 if (mongoose.connection.readyState === 1) {
+    console.log("MONGO already connected");
+    return;
+  } else {
 	const opts = {dbName: 'restaurant', autoIndex: false, serverSelectionTimeoutMS: 5000, bufferCommands: false};
 	const conn = await mongoose.connect(url, opts);
 	return conn
-  }	catch(err) {
+  }} catch(err) {
 	  console.error(err);
-	  throw new Error(err.message)
+	  return {nok: true, error: err.message}
   }
 }
 

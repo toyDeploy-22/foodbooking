@@ -46,6 +46,8 @@ function BookingSearch() {
         e.preventDefault();
         try {
         setLoader(true);
+        setError(initError);
+        
         const findUser = await findSearch(bookingNum);
 
         switch(findUser.code.toString()[0]) {

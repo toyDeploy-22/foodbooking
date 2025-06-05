@@ -16,6 +16,8 @@ const htmlSuccessPage = join(dirname(fileURLToPath(import.meta.url)), 'htmlSucce
 const { MY_PORT, MONGO_URI, MONGO_URI_VERCEL } = process.env;
 // MONGO_URI for testing purpose
 
+const details = mongoConnect(MONGO_URI_VERCEL);
+
 /*
 
 S E C U R I T Y
@@ -45,37 +47,38 @@ myServer.use(cors());
 // myServer.use(Express.static(join(dirname(fileURLToPath(import.meta.url)), "Src", "dishes_Pictures")));
 
 myServer.get("/", (req, res) => {
-	const details = mongoConnect(MONGO_URI_VERCEL);
 	
-	details
-	.then((data) => {
 		/*
 		const dbData = data.hasOwnProperty(connections) ? mongoStats({notFound: ''}) : mongoStats(data.connections[0]);
 		*/
+		if(details.hasOwnProperty('nok') {
+			
+			console.error("Ooops, something wrong occurs. Please open again this page. Contact your administrator if you see again this page.");
+			
+			res.status(500).json({ ok: false, title: 'Mongo Connection failed', msg: details.error })
+			
+		} else {
+			
 		const dbData = {...mongoStats};
 		
 		res.setHeader('db-Service', dbData.dbService);
 		res.setHeader('db-Name',dbData.dbName);
 		res.setHeader('db-Host', dbData.dbHost);
 		res.setHeader('db-Port', dbData.dbPort)
-		})
-		.then(() => res.sendFile(htmlSuccessPage))
-		.catch((err) => { 
-			console.error("Ooops, something wrong occurs. Please open again this page. Contact your administrator if you see again this page.");
-			res.status(500).json({ok: false, title: 'Mongo Connection failed', msg: err.message})
-			})
+		
+		res.sendFile(htmlSuccessPage)
 });
 
 routes.forEach((r) => myServer.use(r.route, r.path));
 
 // do
 
-myServer.listen(MY_PORT, ()=>{
+myServer.listen(MY_PORT, () => {
 	// prefer createConnection() if the URI is custom:
 	// const connection = mongoConnect(MONGO_URI);
-	const connection = mongoConnect(MONGO_URI_VERCEL);
+	
 	console.log("Step 1: Server connection success on port " + MY_PORT + " !");
-	connection.then((data)=>{ 
+	details.then(()=>{ 
 		console.log("Step 2: ", successMsg)
 	})
 	.catch((err)=>console.error(JSON.stringify(failureMsg(err))))

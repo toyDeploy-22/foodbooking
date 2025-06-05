@@ -49,7 +49,7 @@ return(
                 :
                 <Col className='text-center' sm={12} md={8}>
                 <h1 className='bg-secondary text-light'>Book & Food</h1>
-                <span id="slogan"><i>Need to eat? Just save and go!</i></span>
+                <span id="slogan"><i>Hungry? Just book in two clicks and enjoy your food!</i></span>
                 <br /><br />
                 <div className="text-center bg-dark text-danger">
                 <h3>Cannot Show Images</h3>
