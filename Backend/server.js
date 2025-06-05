@@ -51,7 +51,7 @@ myServer.get("/", (req, res) => {
 		/*
 		const dbData = data.hasOwnProperty(connections) ? mongoStats({notFound: ''}) : mongoStats(data.connections[0]);
 		*/
-		if(details.hasOwnProperty('nok') {
+		if(details.hasOwnProperty('nok')) {
 			
 			console.error("Ooops, something wrong occurs. Please open again this page. Contact your administrator if you see again this page.");
 			
@@ -82,10 +82,10 @@ myServer.listen(MY_PORT, () => {
 	details.then(() => 
 		console.log("Step 2: ", successMsg)
 	)
-	.catch((err)=>console.error(JSON.stringify(failureMsg(err))))
+	.catch((err) => console.error(JSON.stringify(failureMsg(err))))
 	});
 
-myServer.on("error", (err)=>{
+myServer.on("error", (err) => {
 	const result = { 
 		title: 'Server Connection NOK', 
 		msg: err.message
