@@ -61,8 +61,8 @@ myServer.get("/", (req, res) => {
 		})
 		.then(() => res.sendFile(htmlSuccessPage))
 		.catch((err) => { 
-			console.error(err);
-			res.status(500).send("Ooops, something wrong occurs. Please open again this page. Contact your administrator if you see again this page.")
+			console.error("Ooops, something wrong occurs. Please open again this page. Contact your administrator if you see again this page.");
+			res.status(500).json({ok: false, title: 'Mongo Connection failed', msg: err.message})
 			})
 });
 
