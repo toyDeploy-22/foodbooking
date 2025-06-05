@@ -77,9 +77,9 @@ routes.forEach((r) => myServer.use(r.route, r.path));
 myServer.listen(MY_PORT, () => {
 	// prefer createConnection() if the URI is custom:
 	// const connection = mongoConnect(MONGO_URI);
-	
 	console.log("Step 1: Server connection success on port " + MY_PORT + " !");
-	details.then(()=>{ 
+	
+	details.then(() => 
 		console.log("Step 2: ", successMsg)
 	})
 	.catch((err)=>console.error(JSON.stringify(failureMsg(err))))
