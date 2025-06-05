@@ -226,7 +226,7 @@ try {
                 status: false,
                 id: '034',
                 section: "Email Already Exists",
-                msg: `The booking request cannot be sent because there is already a pending booking under the email address '${client_email}'. You can modify or delete your pending booking before confirming a new one.`}];
+                msg: `The booking request cannot be sent because there is already a pending booking under the email address '${firstCheck.resa.client_email}'. You can modify or delete your pending booking before confirming a new one.`}];
         } else {
                 result.ok = "false";
                 result.title = 'Unauthorized';
