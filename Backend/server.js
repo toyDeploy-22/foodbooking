@@ -16,7 +16,7 @@ const htmlSuccessPage = join(dirname(fileURLToPath(import.meta.url)), 'htmlSucce
 const { MY_PORT, MONGO_URI, MONGO_URI_VERCEL } = process.env;
 // MONGO_URI for testing purpose
 
-const details = mongoConnect(MONGO_URI_VERCEL);
+const details = await mongoConnect(MONGO_URI_VERCEL);
 
 /*
 
