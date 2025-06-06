@@ -146,7 +146,7 @@ bookatable.get('/search/:booking_id', cors(), async(req, res)=>{
 			title: "Unknown Booking ID", 
 			msg: `Booking id ${searchId} not found.`});
 		}else{	
-		res.write(conn);
+		res.write(conn['mongoStatus']);
 		return res.json(bookingId[0])	
 		}
 	} catch (err) {
