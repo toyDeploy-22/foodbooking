@@ -14,7 +14,7 @@ async function mongoConnect(url) {
 	*/
 	Status.mongoStatus = 'Already connected to FoodBooking database';
 	
-	return mongoStatus
+	return Status
 		
   } else {
 	const opts = {dbName: 'restaurant', autoIndex: false, serverSelectionTimeoutMS: 5000, bufferCommands: false
