@@ -4,7 +4,7 @@ async function mongoConnect(url) {
   
   try {
 	  
-	 const mongoStatus = {};
+	 const Status = {};
 	 
 	 if (mongoose.connection.readyState === 1) {
 	/*
@@ -12,7 +12,7 @@ async function mongoConnect(url) {
 	console.log("Already connected to MongoDB");
     return;
 	*/
-	mongoStatus = 'Already connected to FoodBooking database';
+	Status.mongoStatus = 'Already connected to FoodBooking database';
 	
 	return mongoStatus
 		
@@ -21,9 +21,9 @@ async function mongoConnect(url) {
 	};
 	const conn = await mongoose.connect(url, opts);
 	
-	mongoStatus = 'FoodBooking database successful';
+	Status.mongoStatus = 'FoodBooking database successful';
 	
-	return mongoStatus
+	return Status
 	
   }} catch(err) {
 	  console.error(err);
