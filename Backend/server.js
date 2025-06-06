@@ -16,7 +16,7 @@ const htmlSuccessPage = join(dirname(fileURLToPath(import.meta.url)), 'htmlSucce
 const { MY_PORT, MONGO_URI, MONGO_URI_VERCEL } = process.env;
 // MONGO_URI for testing purpose
 
-const details = await mongoConnect(MONGO_URI_VERCEL, 0);
+const details = await mongoConnect(MONGO_URI_VERCEL);
 
 /*
 
@@ -65,7 +65,7 @@ myServer.get("/", (req, res) => {
 			
 			console.error("Ooops, something wrong occurs. Please open again this page. Contact your administrator if you see again this page.");
 			
-			res.status(500).json({ ok: false, title: 'Mongo Connection failed', msg: details.error })
+			return res.status(500).json({ ok: false, title: 'Mongo Connection failed', msg: details.error })
 			
 		} else {
 		/*
@@ -76,7 +76,7 @@ myServer.get("/", (req, res) => {
 		res.headers.set('db-Host', dbData.dbHost);
 		res.headers.set('db-Port', dbData.dbPort)
 		*/
-		res.sendFile(htmlSuccessPage)
+		return res.sendFile(htmlSuccessPage)
 		}
 });
 

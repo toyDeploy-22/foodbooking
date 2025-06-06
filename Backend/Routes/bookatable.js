@@ -223,7 +223,7 @@ bookatable.patch('/new-table-edition/:booking_id', cors(), async(req, res) => {
 		// if no result finder will be null datatype
 		if(data.length === 0){ // === 0 throws timeout
 			return res.status(404).json({
-			dbStatus = conn['mongoStatus'],
+			dbStatus: conn['mongoStatus'],
 			code: 404, 
 			title: "Unknown Booking ID", 
 			msg: `Booking is not editable because it does not exist.`});
@@ -425,7 +425,7 @@ bookatable.delete('/new-table-deletion/:booking_id', cors(), async(req, res) => 
 		const finder = await reservationModel.findOneAndDelete({"booking_id": bookingId});
 		if(!finder) {
 			return res.status(404).json({
-			dbStatus: conn['mongoStatus'];
+			dbStatus: conn['mongoStatus'],
 			code: 404, 
 			title: "Unknown Booking ID", 
 			msg: `Booking ${bookingId} cannot be deleted because it does not exist.`
