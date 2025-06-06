@@ -16,7 +16,7 @@ const htmlSuccessPage = join(dirname(fileURLToPath(import.meta.url)), 'htmlSucce
 const { MY_PORT, MONGO_URI, MONGO_URI_VERCEL } = process.env;
 // MONGO_URI for testing purpose
 
-const details = await mongoConnect(MONGO_URI_VERCEL);
+const details = await mongoConnect(MONGO_URI_VERCEL, 0);
 
 /*
 
@@ -86,7 +86,7 @@ routes.forEach((r) => myServer.use(r.route, r.path));
 
 myServer.listen(MY_PORT, () => {
 	// prefer createConnection() if the URI is custom:
-	// const connection = mongoConnect(MONGO_URI);
+	// const connection = mongoConnect(MONGO_URI , 0);
 	console.log("Step 1: Server connection success on port " + MY_PORT + " !");
 	
 	details.then(() => 

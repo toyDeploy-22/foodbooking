@@ -3,15 +3,28 @@ import mongoose from "mongoose";
 async function mongoConnect(url) { 
   
   try {
+	  
+	 const mongoStatus = {};
 	 
 	 if (mongoose.connection.readyState === 1) {
-    console.log("MONGO already connected");
+	/*
+	testing:
+	console.log("Already connected to MongoDB");
     return;
+	*/
+	mongoStatus = 'Already connected to FoodBooking database';
+	
+	return mongoStatus
+		
   } else {
 	const opts = {dbName: 'restaurant', autoIndex: false, serverSelectionTimeoutMS: 5000, bufferCommands: false
 	};
 	const conn = await mongoose.connect(url, opts);
-	return conn
+	
+	mongoStatus = 'FoodBooking database successful';
+	
+	return mongoStatus
+	
   }} catch(err) {
 	  console.error(err);
 	  return {nok: true, error: err.message}
