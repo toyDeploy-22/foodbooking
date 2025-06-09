@@ -18,7 +18,7 @@ info={ reasons }
 <Route exact path={`${domain}/search`} element={<BookingSearch />} />
 <Route path={`${domain}/search/:booking_id`} element={<BookingDetails meals={ meals } />} />
 <Route exact path={`${domain}/delete`} element={<DeleteBooking />} />
-<Route path={`${domain}/delete/:booking_id`} element={<BookingDetails meals={ meals } />} />
+<Route path={`${domain}/search/:booking_id`} element={<BookingDetails meals={ meals } />} />
 <Route path='reservation/*' element={<NotFound />} />
 </Routes>)
 }

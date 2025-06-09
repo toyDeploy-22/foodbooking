@@ -114,8 +114,8 @@ const reaDelete = async() => {
 }
 
 const bookingDeletion = async() => {
-  const launcher = await reaDelete();
-  setTimeout(launcher, 1000)
+  const launcher = await new Promise(setTimeout(reaDelete, 1000));
+  return launcher
 }
 
 
