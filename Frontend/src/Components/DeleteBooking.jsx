@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { findSearch, notFoundError, internalServerError } from '../Functions/sendSearch';
+import { findSearch, notFoundError, internalServerError } from '../Functions/sendSearch.js';
+import deleteBooking from '../Functions/deleteBooking.js';
 import { initResaSchema } from '../Functions/resaSchema';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -22,12 +23,22 @@ function DeleteBooking() {
 
     const [user, setUser] = useState({ ...initResaSchema });
 
+    const [deleteModal, setDeleteModal] = useState(false);
+    const [trashSpin, setTrashSpin] = useState(false);
+
     const [Error, setError] = useState({
         err: false,
         code: 0,
         title: '',
         msg: ''
     });
+
+    const [deletionResult, setDeletionResult] = useState({
+        err: false,
+        code: 0,
+        title: '',
+        msg: ''
+    })
 
     const initError = {
         err: false,
@@ -75,10 +86,46 @@ function DeleteBooking() {
         }
     }
 
+    const openModal = () => {
+      setDeleteModal(true)
+    }
+
+    const closeModal = () => {
+      setDeleteModal(false)
+    }
+
     const handleClose = () => {
        setError(initError)
     }
  // new mongoose property added: booking_id
+
+const reaDelete = async() => {
+  
+  try {
+    setTrashSpin(true);
+    const deletor = await deleteBooking(user['booking_id']);
+    setDeletionResult(deletor);
+    setTrashSpin(false)
+
+  } catch(err) {
+    // console.error(err); origin error already sent from deletebooking.js function
+  setDeletionResult(err)
+  }
+}
+
+const bookingDeletion = async() => {
+  const launcher = await reaDelete();
+  setTimeout(launcher, 1000)
+}
+
+
+const refresh = () => {
+  setDeleteModal(false);
+  setError(initError);
+  setDeletionResult(initError);
+  setTimeout(() => window.location.reload(), 1000)
+}
+
     return (
       <div>
       <br />
@@ -140,10 +187,49 @@ function DeleteBooking() {
       :
       <div className="p-2 text-light h6">This reservation has no comment.</div>
       }
-<FontAwesomeIcon icon={faTrashArrowUp} spin size="lg" style={{color: "#db0a0a"}} />
+<FontAwesomeIcon icon={faTrashArrowUp} onClick={openModal} size="lg" style={{color: "#db0a0a"}} />
       </Stack>
       </div>
     }
+    <Modal show={deleteModal} onHide={closeModal}>
+        <Modal.Header className={deletionResult['code'] === 200 ? 'bg-success text-light' : deletionResult['code'] === 0 ? 'text-primary' : `bg-secondary text-${deletionResult['code'] === 404 ? 'warning' : 'danger' }`} closeButton>
+          <Modal.Title>{deletionResult['code'] === 0 ? 'Delete Your booking' : deletionResult['title']}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        { deletionResult.code === 0 ?
+        `Are you sure you want to delete your booking ${user.booking_id} ?`
+            :
+         `${deletionResult.msg}`
+        }
+        {deletionResult.code === 200 && <><br /><FontAwesomeIcon icon={faCircleCheck} beatFade size="lg" style={{color: "#63E6BE"}} /></>}
+        </Modal.Body>
+        { deletionResult.code === 200 ?
+          <Modal.Footer>
+        { trashSpin ?
+        <Button style={{ backgroundColor: '#ee8787' }} disabled >
+          <FontAwesomeIcon icon={faTrashArrowUp} spin size="xs" style={{ color: 'ghostwhite' }} />
+          {' '}
+            Deleting...
+          </Button>
+          :
+          <Button variant={"outline-danger bg-dark"} onClick={bookingDeletion} >
+          <FontAwesomeIcon icon={faTrashArrowUp} size="xs" style={{color: "#db0a0a"}} />
+          {' '}
+            Delete
+          </Button>
+          }
+          <Button variant="outline-danger" onClick={closeModal} disabled={trashSpin ? true : false} >
+            Cancel
+          </Button>
+        </Modal.Footer>
+        :
+        <Modal.Footer>
+        <Button variant="outline-success" onClick={refresh} disabled={trashSpin ? true : false} >
+            Close
+          </Button>
+        </Modal.Footer>
+        }
+      </Modal>
     {''}
     { Error.err &&
             <div

@@ -140,14 +140,14 @@ bookatable.get('/search/:booking_id', cors(), async(req, res)=>{
 	// issues with findOne on vercel
 	const bookingId = await reservationModel.find({"booking_id": new RegExp(searchId, "i")});
 	
-	if(bookingId.length === 0){	// === 0 throws timeout
+	if(bookingId.length === 0){	
 		return res.status(404).json({
-			dbStatus: conn['mongoStatus'],
+			dbStatus: conn['mongoStatus'], // sent to client
 			code: 404, 
 			title: "Unknown Booking ID", 
 			msg: `Booking id ${searchId} not found.`});
 		}else{
-		console.log(conn);
+		console.log(conn); // sent to vercel log for testing
 		return res.json(bookingId[0])	
 		}
 	} catch (err) {

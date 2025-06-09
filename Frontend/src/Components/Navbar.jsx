@@ -20,6 +20,9 @@ function NavBar () {
               <NavDropdown.Item href="/reservation/search">
                 Modify A Reservation
               </NavDropdown.Item>
+              <NavDropdown.Item href="/reservation/delete">
+                Delete A Reservation
+              </NavDropdown.Item>
               {
               /*<NavDropdown.Item href="#">
                 Contact
