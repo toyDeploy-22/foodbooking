@@ -131,8 +131,9 @@ const refresh = () => {
       <div>
       <br />
         <Form onSubmit={submitSearch}>
+        <p className='text-center'><small><i>Please introduce below the number of the booking you want to delete.</i></small></p>
     <InputGroup size="lg">
-    <InputGroup.Text>Delete A Booking
+    <InputGroup.Text className='bg-secondary text-light'>Delete A Booking
     </InputGroup.Text>
     <Form.Control
     onChange={handleSearch}
@@ -144,12 +145,12 @@ const refresh = () => {
     />
     <Button 
     type="submit"
-    variant="success" 
+    variant="dark" 
     size="lg" >
     Find Booking
     </Button>
     </InputGroup>
-    <p className='text-center'><small><i>Please introduce the booking number you want to delete.</i></small></p><br /><br />
+    <br /><br />
     {
         loader === true && 
         <div className='d-flex flex-row'>
@@ -166,17 +167,17 @@ const refresh = () => {
         {/*<Badge bg="light"><b>{[user].length}</b></Badge> */}
       <Accordion defaultActiveKey="0" flush>
       <Accordion.Item eventKey="0">
-        <Accordion.Header><h5><Badge bg="info">{[user].length}</Badge> Booking Found !</h5></Accordion.Header>
+        <Accordion.Header><div className='p-2 bg-dark text-info'><span>We found</span><span style={{fontSize: '2em'}}><Badge bg="info">{[user].length}</Badge></span>{' '}<span>Booking with the details you have provided</span></div></Accordion.Header>
         <Accordion.Body>
-         <small className="fst-italic">If you want more details about your booking, just click on the booking number.</small>
+         <small className="fst-italic">Click on the booking number for more details. Or click and the blue trash icon if you want to delete your booking.</small>
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
     <br /><br />
     <Stack 
-    direction="horizontal" className="p-2 justify-content-center fw-bold lead" gap={3} style={{backgroundColor: '#552c68', borderRadius: '5px 20px 5px'}}>
-      <div className="p-2 text-light">{user.last_name} {user.first_name}</div>
-      <div className="p-2 text-light">{user.bookDay}{' for '} {user.bookTime}</div>
+    direction="horizontal" className="p-2 justify-content-center fw-bold lead" gap={3} style={{background: 'linear-gradient(145deg,rgba(161, 161, 161, 1) 0%, rgba(230, 32, 32, 0.5) 85%)', borderRadius: '5px 20px 5px'}}>
+      <div className="p-2 text-dark">{user.last_name} {user.first_name}</div>
+      <div className="p-2 text-dark">{user.bookDay}{' for '} {user.bookTime}</div>
       <div className="vr" />
       <div className="p-2"><Link
       className="bookingNumberFound text-success text-decoration-none"
@@ -188,7 +189,9 @@ const refresh = () => {
       :
       <div className="p-2 text-light h6">This reservation has no comment.</div>
       }
-<FontAwesomeIcon icon={faTrashArrowUp} onClick={openModal} size="lg" style={{color: "#db0a0a"}} />
+      <div className='p-2'>
+<FontAwesomeIcon icon={faTrashArrowUp} onClick={openModal} size="lg" style={{color: "#4c4884"}} />
+</div>
       </Stack>
       </div>
     }
