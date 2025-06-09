@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import ReservationPage from './Components/ReservationPage.jsx';
 import BookingSearch from "./Components/BookingSearch.jsx";
 import BookingDetails from './Components/BookingDetails.jsx';
-import DeleteBooking from "./Functions/deleteBooking.js";
+import DeleteBooking from "./Components/DeleteBooking.jsx";
 import NotFound from './Components/NotFound.jsx';
 import reasons from './Functions/reasons.js';
 
