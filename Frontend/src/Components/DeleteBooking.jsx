@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { findSearch, notFoundError, internalServerError } from '../Functions/sendSearch.js';
+import { findSearch, unauthorizedError, notFoundError, internalServerError } from '../Functions/sendSearch.js';
 import deleteBooking from '../Functions/deleteBooking.js';
 import { initResaSchema } from '../Functions/resaSchema';
 import Form from 'react-bootstrap/Form';
@@ -69,9 +69,9 @@ function DeleteBooking() {
             break;
 
             case "4":
-            const notFoundError_Obj = notFoundError(bookingNum);
+            const notFoundError_Obj = (findUser.code === 401 ? unauthorizedError() : notFoundError(bookingNum));
             setLoader(false);
-            setError(notFoundError_Obj);
+            setError(notFoundError_Obj)
             break;
 
             default: 
@@ -131,10 +131,10 @@ const refresh = () => {
       <div>
       <br />
         <Form onSubmit={submitSearch}>
+        <h2 className='display-3'><span className='bg-dark p-2'> Delete My Booking</span></h2>
+        <br />
         <p className='text-center'><small><i>Please introduce below the number of the booking you want to delete.</i></small></p>
     <InputGroup size="lg">
-    <InputGroup.Text className='bg-secondary text-light'>Delete A Booking
-    </InputGroup.Text>
     <Form.Control
     onChange={handleSearch}
     placeholder='Type Here'

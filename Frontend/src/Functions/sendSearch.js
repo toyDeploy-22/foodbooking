@@ -11,7 +11,24 @@ const findSearch = async(id) => {
 let result = {};
 
 try {
-    console.log(id)
+    console.log(id);
+    if(typeof id !== 'string') {
+    
+    result.ok = false;
+    result.code = 401;
+    result.data = [];
+
+    return result
+
+    } else if(id.length < 5) {
+    
+    result.ok = false;
+    result.code = 401;
+    result.data = [];
+
+    return result
+
+    } else {
 // const url = `http://localhost:5000/reservation/search/${id}`;
 const url = `https://foodbooking-backend.vercel.app/reservation/search/${id}`;
 
@@ -31,7 +48,7 @@ if(status < 200 || status >= 300) {
     result.data = [data] // array of obj
     console.log(result);
     return result }
-} catch(err) {
+}} catch(err) {
     if(err.hasOwnProperty("status")){
     if(err.status === 404){
     result.ok = false;
@@ -49,6 +66,15 @@ if(status < 200 || status >= 300) {
     console.error(err);
     return result;
     }
+}
+
+const unauthorizedError = () => {
+        return {
+        err: true,
+        code: 401,
+        title: "Unable To Search !",
+        msg: "In order to be able to look for your booking, you must provide at least the five allowed characters."
+        }
 }
 
 const notFoundError = (id) => {
@@ -69,4 +95,4 @@ const internalServerError = (error) => {
      }
 }
 
-export { findSearch, notFoundError, internalServerError };
+export { findSearch, unauthorizedError, notFoundError, internalServerError };

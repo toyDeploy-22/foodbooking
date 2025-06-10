@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { findSearch, notFoundError, internalServerError } from '../Functions/sendSearch';
+import { findSearch, unauthorizedError, notFoundError, internalServerError } from '../Functions/sendSearch';
 import { initResaSchema } from '../Functions/resaSchema';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -59,9 +59,9 @@ function BookingSearch() {
             break;
 
             case "4":
-            const notFoundError_Obj = notFoundError(bookingNum);
+            const notFoundError_Obj = (findUser.code === 401 ? unauthorizedError() : notFoundError(bookingNum));
             setLoader(false);
-            setError(notFoundError_Obj);
+            setError(notFoundError_Obj)
             break;
 
             default: 

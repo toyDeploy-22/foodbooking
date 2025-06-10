@@ -222,6 +222,7 @@ bookatable.patch('/new-table-edition/:booking_id', cors(), async(req, res) => {
 		// 2 - Find booking to grab non modificable data and check if has been modified
 		
 		const data = await reservationModel.find({"booking_id": new RegExp(bookingId, "i")});
+		// Performance issues with .findOne() method
 		// if no result finder will be null datatype
 		if(data.length === 0){ // === 0 throws timeout
 			return res.status(404).json({
