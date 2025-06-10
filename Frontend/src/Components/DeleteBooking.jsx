@@ -208,7 +208,7 @@ const refresh = () => {
             :
          `${deletionResult.msg}`
         }
-        {deletionResult.code === 200 && <><br /><FontAwesomeIcon icon={faCircleCheck} beatFade size="lg" style={{color: "#63E6BE"}} /></>}
+        {deletionResult.code === 200 && <div className='d-flex justify-content-center'><br /><FontAwesomeIcon icon={faCircleCheck} beatFade size="lg" style={{color: "#63E6BE"}} /></div>}
         </Modal.Body>
         { deletionResult.code === 200 ?
         <Modal.Footer>
