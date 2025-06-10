@@ -198,7 +198,7 @@ const refresh = () => {
       </Stack>
       </div>
     }
-    <Modal show={deleteModal} onHide={closeModal}>
+    <Modal show={deleteModal} onHide={deletionResult['code'] === 200 ? refresh : closeModal}>
         <Modal.Header className={deletionResult['code'] === 200 ? 'bg-success text-light' : deletionResult['code'] === 0 ? 'text-primary' : `bg-secondary text-${deletionResult['code'] === 404 ? 'warning' : 'danger' }`} closeButton>
           <Modal.Title>{deletionResult['code'] === 0 ? 'Delete Your booking' : deletionResult['title']}</Modal.Title>
         </Modal.Header>
