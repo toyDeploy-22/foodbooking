@@ -24,7 +24,7 @@ const deleteBooking = async(bk_id) => {
     result.err = true;
     result.code = 404;
     result.title = "Booking ID Not Found";
-    result.msg = "The deletion failed because the booking ID is not found. Please makle sure that the booking ID is correct and that your booking is not already deleted."
+    result.msg = "The deletion failed because the booking ID is not found. Please make sure that the booking ID is correct and that your booking is not already deleted."
     }
     return result
   }
