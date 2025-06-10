@@ -73,7 +73,7 @@ const unauthorizedError = () => {
         err: true,
         code: 401,
         title: "Unable To Search !",
-        msg: "In order to be able to look for your booking, you must provide at least the five allowed characters."
+        msg: "In order to be able to launch the research, you must provide at least five allowed characters from your booking number."
         }
 }
 
@@ -82,7 +82,7 @@ const notFoundError = (id) => {
         err: true,
         code: 404,
         title: "Not found :(",
-        msg: "The booking number " + id + " is not found. Please make sure that the characters are correctly entered and that you don't have deleted your booking."
+        msg: "The booking number " + id + " is not found. Please make sure that the characters are correctly entered and that you don't have your booking deleted yet."
         }
 }
 

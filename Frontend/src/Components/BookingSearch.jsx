@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Spinner from 'react-bootstrap/Spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { faUtensils } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
@@ -85,8 +86,10 @@ function BookingSearch() {
       <div>
       <br />
         <Form onSubmit={submitSearch}>
+        <h2 className='display-3 text-center text-light'><span className='rounded-pill p-2' style={{background: 'linear-gradient(356deg,rgba(199, 184, 46, 1) 0%, rgba(2, 26, 12, 1) 88%)'}}>My Reservations</span></h2>
+        <br />
     <InputGroup size="lg">
-    <InputGroup.Text>Booking nº
+    <InputGroup.Text className="bg-secondary" style={{color: 'ghostwhite; text-shadow: black 1px 1px'}} >Search For Booking nº
     </InputGroup.Text>
     <Form.Control
     onChange={handleSearch}
@@ -101,6 +104,8 @@ function BookingSearch() {
     variant="success" 
     size="lg" >
     Find Booking
+    <br />
+    <FontAwesomeIcon icon={faMagnifyingGlass} size="xs" style={{color: "#ffffff"}} />
     </Button>
     </InputGroup>
     <p className='text-center'><small><i>Please introduce your booking number in the above field.</i></small></p><br /><br />

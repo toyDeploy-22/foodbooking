@@ -58,6 +58,9 @@ function DeleteBooking() {
         e.preventDefault();
         try {
         setLoader(true);
+        setError(initError);
+        setUser(initResaSchema);
+
         const findUser = await findSearch(bookingNum);
 
         switch(findUser.code.toString()[0]) {
@@ -131,7 +134,7 @@ const refresh = () => {
       <div>
       <br />
         <Form onSubmit={submitSearch}>
-        <h2 className='display-3'><span className='bg-dark p-2'> Delete My Booking</span></h2>
+        <h2 className='display-3 text-center text-light'><span className='bg-dark rounded-pill p-2'> Delete My Booking</span></h2>
         <br />
         <p className='text-center'><small><i>Please introduce below the number of the booking you want to delete.</i></small></p>
     <InputGroup size="lg">
@@ -147,7 +150,7 @@ const refresh = () => {
     type="submit"
     variant="dark" 
     size="lg" >
-    Find Booking
+    Find My Booking
     </Button>
     </InputGroup>
     <br /><br />
@@ -167,9 +170,9 @@ const refresh = () => {
         {/*<Badge bg="light"><b>{[user].length}</b></Badge> */}
       <Accordion defaultActiveKey="0" flush>
       <Accordion.Item eventKey="0">
-        <Accordion.Header><div className='p-2 bg-dark text-info'><span>We found</span><span style={{fontSize: '2em'}}><Badge bg="info">{[user].length}</Badge></span>{' '}<span>Booking with the details you have provided</span></div></Accordion.Header>
+        <Accordion.Header><div className='p-3 bg-dark text-info rounded'><span>We found</span>{' '}<span style={{fontSize: '2em'}}><Badge bg="info">{[user].length}</Badge></span>{' '}<span>Booking with the details you have provided</span></div></Accordion.Header>
         <Accordion.Body>
-         <small className="fst-italic">Click on the booking number for more details. Or click and the blue trash icon if you want to delete your booking.</small>
+         <small className="fst-italic">Click on the booking number for more details. You can also click on the blue trash icon if you want to delete your booking.</small>
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
@@ -208,6 +211,12 @@ const refresh = () => {
         {deletionResult.code === 200 && <><br /><FontAwesomeIcon icon={faCircleCheck} beatFade size="lg" style={{color: "#63E6BE"}} /></>}
         </Modal.Body>
         { deletionResult.code === 200 ?
+        <Modal.Footer>
+        <Button variant="outline-success" onClick={refresh}>
+            Close
+          </Button>
+        </Modal.Footer>
+              :
           <Modal.Footer>
         { trashSpin ?
         <Button style={{ backgroundColor: '#ee8787' }} disabled >
@@ -218,18 +227,11 @@ const refresh = () => {
           :
           <Button variant={"outline-danger bg-dark"} onClick={bookingDeletion} >
           <FontAwesomeIcon icon={faTrashArrowUp} size="xs" style={{color: "#db0a0a"}} />
-          {' '}
-            Delete
+            {deletionResult.code === 0 ? '  Delete' : '  Try Again'}
           </Button>
           }
           <Button variant="outline-danger" onClick={closeModal} disabled={trashSpin ? true : false} >
             Cancel
-          </Button>
-        </Modal.Footer>
-        :
-        <Modal.Footer>
-        <Button variant="outline-success" onClick={refresh} disabled={trashSpin ? true : false} >
-            Close
           </Button>
         </Modal.Footer>
         }
