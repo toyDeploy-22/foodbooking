@@ -134,7 +134,7 @@ const refresh = () => {
       <div>
       <br />
         <Form onSubmit={submitSearch}>
-        <h2 className='display-3 text-center text-light'><span className='bg-dark rounded-pill p-2'> Delete My Booking</span></h2>
+        <h2 className='display-5 text-center text-light'><span className='bg-dark rounded-pill p-3'> Delete My Booking</span></h2>
         <br />
         <p className='text-center'><small><i>Please introduce below the number of the booking you want to delete.</i></small></p>
     <InputGroup size="lg">
@@ -204,7 +204,7 @@ const refresh = () => {
         </Modal.Header>
         <Modal.Body>
         { deletionResult.code === 0 ?
-        `Are you sure you want to delete your booking ${user.booking_id} ?`
+        <p>{'Are you sure you want to delete your booking '}<b>{`"${user.booking_id}"`}</b>{' ?'}</p>
             :
          `${deletionResult.msg}`
         }
