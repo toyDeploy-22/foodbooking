@@ -7,12 +7,10 @@ const deleteBooking = async(bk_id) => {
 
     const url = `https://foodbooking-backend.vercel.app/reservation/new-table-deletion/${bk_id}`;
 
-    const deletor = await fetch(url, {
+    const deletable = await fetch(url, {
       method: 'DELETE',
       headers: {"Content-Type": "application/json"},
     });
-
-    const deletable = await deletor.json();
 
     if(deletable.status >= 200 && deletable.status > 300) {
     // console.log(deletable.status)
