@@ -46,7 +46,7 @@ if(status < 200 || status >= 300) {
     result.ok = true;
     result.code = status;
     result.data = [data] // array of obj
-    console.log(result);
+    //console.log(result);
     return result }
 }} catch(err) {
     if(err.hasOwnProperty("status")){

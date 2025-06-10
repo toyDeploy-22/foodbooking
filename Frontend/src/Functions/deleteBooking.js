@@ -12,8 +12,10 @@ const deleteBooking = async(bk_id) => {
       headers: {"Content-Type": "application/json"},
     });
 
-    if(deletable.status >= 200 && deletable.status > 300) {
-    // console.log(deletable.status)
+    console.log(deletable.status);
+
+    if(deletable.status >= 200 && deletable.status < 300) {
+     
     result.err = false;
     result.code = 200;
     result.title = "Booking Deletion Successful";
