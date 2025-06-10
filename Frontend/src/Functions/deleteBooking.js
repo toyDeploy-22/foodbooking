@@ -14,7 +14,7 @@ const deleteBooking = async(bk_id) => {
 
     const deletable = await deletor.json();
 
-    if(deletable.code >= 200 && deletable.code > 300) {
+    if(deletable.status >= 200 && deletable.status > 300) {
     // console.log(deletable.status)
     result.err = false;
     result.code = 200;
