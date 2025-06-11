@@ -14,7 +14,7 @@
 }
 
 /* Navbar */
-#currentDate {
+p#currentDate {
     text-align: end; 
     width: 50%; 
     font-family: cursive, 'Segoe UI', Tahoma, Verdana, sans-serif;

@@ -14,6 +14,8 @@ function getDate() {
 
     const fullDate = `${dayName.substring(0, 3)}, ${dayNumber} ${month.substring(0, 3)} ${year}`;
 
+    console.log(fullDate)
+
     return fullDate;
 
     } catch(err) {
