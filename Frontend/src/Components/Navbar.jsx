@@ -12,8 +12,8 @@ function NavBar ({ today }) {
 <Navbar expand="lg" bg="primary" data-bs-theme="dark">
       <Container>
         <Navbar.Brand href="/">BookFood</Navbar.Brand>
+        <p id='currentDate' className='text-light'><small>{today}</small></p>
         <Navbar.Toggle aria-controls="navbar-nav" />
-        <p id='currentDate' className='text-light'><small>{today.toString()}</small></p>
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
             <NavDropdown title="Reservation" id="reservation-nav">
