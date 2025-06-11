@@ -12,7 +12,7 @@ function NavBar ({ today }) {
 <Navbar expand="lg" bg="primary" data-bs-theme="dark">
       <Container>
         <Navbar.Brand href="/">BookFood</Navbar.Brand>
-        <p className='currentDate text-light'>{today}</p>
+        <p className='currentDate text-light d-lg-none'>{today}</p>
         <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
@@ -47,7 +47,7 @@ function NavBar ({ today }) {
             </NavDropdown>
             
           </Nav>
-          <p className='currentDate text-light'>{today}</p>
+          <p className='currentDate text-light d-md-none d-lg-block'>{today}</p>
         </Navbar.Collapse>
       </Container>
     </Navbar>
