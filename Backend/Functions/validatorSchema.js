@@ -29,7 +29,8 @@ const validator_email = {
 }
 
 let validator_dishesChecks = [
-	{validator: (dishes) => dishes.length >= 1 && dishes.length <= 10,
+	{validator: (dishes) => dishes.length >= 1 && dishes.length <= 11, 
+	// up to 10 dishes + 1 dish (from the user) 
 	message: "You must add from 1 to 10 dish(es) in order for your booking to be confirmed."},
 	
 	{validator: (dishes) => verifyDishes(dishes).length === 0,
