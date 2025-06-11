@@ -6,14 +6,14 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 // Do All elements in the form (except extra) as required
 
-function NavBar (today) {
+function NavBar ({ today }) {
 
     return (
 <Navbar expand="lg" bg="primary" data-bs-theme="dark">
       <Container>
         <Navbar.Brand href="/">BookFood</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-nav" />
-        <p id='currentDate' className='text-light'><small>{today}</small></p>
+        <p id='currentDate' className='text-light'><small>{today.toString()}</small></p>
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
             <NavDropdown title="Reservation" id="reservation-nav">
