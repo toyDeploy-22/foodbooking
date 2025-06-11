@@ -8,13 +8,11 @@ const allMonths = ["January", "February", "March", "April", "May", "June", "July
 function getDate() {
     try {
     const dayName = allDays[today.getDay()];
-    const dayNumber = today.getDay() + 1 >= 10 ? today.getDay() + 1 : `${(today.getDay() + 1).substring(1)}`;
+    const dayNumber = (today.getDate() >= 10 ? today.getDate() : `${(today.getDate()).toString().substring(1)}`);
     const month = allMonths[today.getMonth()];
     const year = today.getFullYear();
 
     const fullDate = `${dayName.substring(0, 3)}, ${dayNumber} ${month.substring(0, 3)} ${year}`;
-
-    console.log(fullDate)
 
     return fullDate;
 
