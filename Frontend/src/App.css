@@ -13,6 +13,13 @@
     background-color: rgba(245, 245, 245, 0.868);
 }
 
+/* Navbar */
+#currentDate {
+    text-align: end; 
+    width: 50%; 
+    font-family: cursive, 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
 @counter-style avocado {
   system: cyclic;
   symbols: "🥑";

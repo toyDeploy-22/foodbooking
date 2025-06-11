@@ -3,6 +3,9 @@ import axios from "axios";
 import LoadingElement from "./Components/loadingElement.jsx";
 import ErrorElement from "./Components/errorElement.jsx";
 
+// Custom Modules
+import getDate from "./Functions/getDate.js";
+
 // Components
 import NavBar from './Components/Navbar.jsx';
 import App2 from './App2.js';
@@ -15,6 +18,7 @@ function App () {
 
 const [loader, setLoader] = useState(false);
 const [fullDishes, setFullDishes] = useState([]);
+const [todayIs, setTodayIs] = useState('day, 01 Mon YEAR');
 const [Error, setError] = useState(false);
 
 
@@ -31,7 +35,9 @@ const getDishes = async() => {
         const url = `https://foodbooking-backend.vercel.app/dish/alldishes`;
         const dataURL = await axios.get(url, { signal: signal });
         // const dataURL = await fetchURL.json();
+        const newDate = getDate();
         setFullDishes(() => [...dataURL.data.dishes]);
+        setTodayIs(() => newDate !== '' ? newDate : 'day, 01 Mon YEAR');
         setError(false);
         setLoader(false);
         console.log('dishes added.')
@@ -63,7 +69,7 @@ return(
 return (
     <React.Fragment>
     <div className='fruitsCover'>
-    <NavBar />
+    <NavBar today={todayIs} />
     <div className='coverContainer'>
     <App2 meals={fullDishes} />
     <App3 meals={fullDishes} />
