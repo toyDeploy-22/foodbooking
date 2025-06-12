@@ -134,7 +134,7 @@ const refresh = () => {
       <div>
       <br />
         <Form onSubmit={submitSearch}>
-        <h2 className='display-5 text-center text-light'><span className='bg-dark rounded-pill p-3'> Delete My Booking</span></h2>
+        <h2 className='display-5 text-center text-light'><span className='rounded-pill p-4' style={{background: 'linear-gradient(9deg,rgba(3, 0, 0, 1) 24%, rgba(214, 21, 21, 1) 95%)', textShadow: 'ghostwhite 1px 1px'}}> Delete My Booking</span></h2>
         <br />
         <p className='text-center'><small><i>Please introduce below the number of the booking you want to delete.</i></small></p>
     <InputGroup size="lg">
@@ -148,7 +148,7 @@ const refresh = () => {
     />
     <Button 
     type="submit"
-    variant="dark" 
+    style={{background: 'radial-gradient(circle,rgba(242, 17, 24, 1) 0%, rgba(66, 7, 7, 0.76) 32%, rgba(26, 3, 3, 1) 74%)', textShadow: 'ghostwhite 1px 1px'}} 
     size="lg" >
     Find My Booking
     </Button>

@@ -86,7 +86,7 @@ function BookingSearch() {
       <div>
       <br />
         <Form onSubmit={submitSearch}>
-        <h2 className='display-3 text-center text-light'><span className='rounded-pill p-3' style={{background: 'linear-gradient(356deg,rgba(199, 184, 46, 1) 0%, rgba(2, 26, 12, 1) 88%)'}}>Booking Check</span></h2>
+        <h2 className='display-3 text-center text-light'><span className='rounded-pill p-4' style={{background: 'linear-gradient(356deg,rgba(199, 184, 46, 1) 0%, rgba(2, 26, 12, 1) 88%)'}}>Booking Check</span></h2>
         <br />
         <p className='text-center fst-italic'><small>Look for your booking, check the details, and edit the info if you want !</small></p>
     <InputGroup size="lg">
