@@ -159,7 +159,7 @@ const editData = async() => {
     }
     */
 
-    const editBody = await editBooking(bookingDetails, [guestDishes]);
+    const editBody = await editBooking(bookingDetails, bookingDetails.dishes_selected);
 
     switch(editBody.code) {
       case 400:
@@ -392,7 +392,7 @@ useEffect(()=>{
     const obj = notFoundError(booking_id)
     setLoader(false);
     setError(()=>obj)
-    } else if(bookingFetch.status <= 200 || bookingFetch > 300) {
+    } else if(bookingFetch.status >= 200 && bookingFetch.status < 300) {
       const success = {
         err: false,
         code: 200,
