@@ -148,7 +148,7 @@ const refresh = () => {
     />
     <Button 
     type="submit"
-    style={{background: 'radial-gradient(circle,rgba(242, 17, 24, 1) 0%, rgba(66, 7, 7, 0.76) 32%, rgba(26, 3, 3, 1) 74%)', textShadow: 'ghostwhite 1px 1px'}} 
+    style={{background: 'radial-gradient(circle,rgba(252, 0, 8, 0.60) 0%, rgba(66, 7, 7, 0.76) 40%, rgba(26, 3, 3, 1) 75%)'}} 
     size="lg" >
     Find My Booking
     </Button>
