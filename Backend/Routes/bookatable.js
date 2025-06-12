@@ -214,7 +214,7 @@ bookatable.patch('/new-table-edition/:booking_id', cors(), async(req, res) => {
 		
 		const no_userEditable = {
 			booking_id: bookingId,
-			dishes_selected: dishes_selected,
+			// dishes_selected: dishes_selected,
 			guests: guests,
 			legalAge: legalAge
 		};
@@ -253,8 +253,8 @@ bookatable.patch('/new-table-edition/:booking_id', cors(), async(req, res) => {
 		
 		const dishOccurences = {
 			occurences: 0,
-			dishKeys_user: no_userEditable.dishes_selected.map((dsh) => Object.keys(dsh))[0],
-			dishNames_user: no_userEditable.dishes_selected.map((dsh) => Object.values(dsh))[0],
+			dishKeys_user: dishes_selected.map((dsh) => Object.keys(dsh))[0],
+			dishNames_user: dishes_selected.map((dsh) => Object.values(dsh))[0],
 			
 			dishKeys_default: checkEdit2.dishes_selected.map((dsh) => Object.keys(dsh))[0],
 			dishNames_default: checkEdit2.dishes_selected.map((dsh) => Object.values(dsh))[0]
