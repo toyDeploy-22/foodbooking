@@ -1016,8 +1016,8 @@ useEffect(()=>{
         <br />
         <Stack className="p-2" direction="horizontal" gap={3}>
         <ListGroup className="fst-italic" style={{fontSize: '10px'}}>
-      <ListGroup.Item>Request sent on: {bookingDetails.createdAt.substring(0, 10)} at {bookingDetails.createdAt.substring(11,16)}</ListGroup.Item>
-        <ListGroup.Item>Modified on: {bookingDetails.updatedAt.substring(0, 10)} at {bookingDetails.updatedAt.substring(11,16)}</ListGroup.Item>
+      <ListGroup.Item>Request sent on: {bookingDetails.hasOwnProperty('createdAt') ? `${bookingDetails.createdAt.substring(0, 10)} at ${bookingDetails.createdAt.substring(11,16)}` : 'Date Unknown'}</ListGroup.Item>
+        <ListGroup.Item>Modified on: {bookingDetails.hasOwnProperty('updatedAt') ? `${bookingDetails.updatedAt.substring(0, 10)} at ${bookingDetails.updatedAt.substring(11,16)}` : 'Date unknown'}</ListGroup.Item>
         </ListGroup>
         <ListGroup className="fst-italic" style={{fontSize: '10px'}}>
         <ListGroup.Item>VIP Table: no</ListGroup.Item>
