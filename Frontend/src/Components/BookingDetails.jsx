@@ -790,7 +790,7 @@ useEffect(()=>{
         <br />
 
         
-        <Form.Group >
+        <Form.Group controlId="extra">
         <Form.Label as="p" className={labelStyle}>Comments</Form.Label>
         <Form.Text className='mx-2' muted><i>Please tell us more about your booking (number of guests, special request needed, etc.)</i></Form.Text>
         <Form.Control

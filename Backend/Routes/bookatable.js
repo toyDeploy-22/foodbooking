@@ -199,7 +199,7 @@ bookatable.patch('/new-table-edition/:booking_id', cors(), async(req, res) => {
 		// 1 - Get body and params
 		const bookingId = req.params.booking_id;
 		
-		const { fname, lname, email, phone, guests, dishes, smoking, bookDay, bookTime, extra, legalAge } = req.body;
+		const { fname, lname, email, phone, guests, dishes_selected, smoking, bookDay, bookTime, extra, legalAge } = req.body;
 		
 		const editable = {
 		first_name: fname,
@@ -213,7 +213,7 @@ bookatable.patch('/new-table-edition/:booking_id', cors(), async(req, res) => {
 		
 		const no_userEditable = {
 			booking_id: bookingId,
-			dishes_selected: dishes,
+			dishes_selected: dishes_selected,
 			guests: guests,
 			email: email,
 			legalAge: legalAge
