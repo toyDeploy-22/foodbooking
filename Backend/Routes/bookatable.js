@@ -205,6 +205,7 @@ bookatable.patch('/new-table-edition/:booking_id', cors(), async(req, res) => {
 		first_name: fname,
 		last_name: lname, 
         phone: phone,
+		email: email,
         smoking: smoking,
         bookDay: bookDay,
 		bookTime: bookTime,
@@ -215,7 +216,6 @@ bookatable.patch('/new-table-edition/:booking_id', cors(), async(req, res) => {
 			booking_id: bookingId,
 			dishes_selected: dishes_selected,
 			guests: guests,
-			email: email,
 			legalAge: legalAge
 		};
 		
@@ -233,16 +233,19 @@ bookatable.patch('/new-table-edition/:booking_id', cors(), async(req, res) => {
 		} else {
 		
 		const finder = data[0];
+		console.log(finder);
 		
 		const checkEdit = {
 		booking_id: finder.booking_id, // value will always be a set of string numbers
 		guests: finder.guests, // Has to be the same number
-		email: finder.email, // will always be a string with '@'
+		// email: finder.email,  will always be a string with '@'
 		legalAge: finder.legalAge // will always be a true boolean type
 		// So values will never interfere between them
 		}
 		const checkEdit2 = { dishes_selected: finder.dishes_selected, // Dishes modification must be done in the other route 
 		}
+		console.log(checkEdit);
+		console.log(checkEdit2);
 		
 		/* if(Object.values(nonEditable).map((val, _ind)=>val === Object.values(checkEdit)[_ind]).map((v)=>v.toString()).indexOf("false") > -1){*/
 		

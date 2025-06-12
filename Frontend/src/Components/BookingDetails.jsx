@@ -508,7 +508,7 @@ useEffect(()=>{
         name="guests"
         value={bookingDetails.guests}
         onChange={handleBooking}>
-        <option value="" disabled> Select number of guests {"("}without including you{")"}</option>
+        <option value="" disabled> Select number of guests {"("}without including yourself{")"}</option>
         {
         [0,1,2,3,4,5,6,7,8,9,10].map((guest, _ind)=>
         <option 
@@ -724,7 +724,7 @@ useEffect(()=>{
         </Form.Group>
         <br />
 
-        <Form.Group>
+        <Form.Group controlId="smoking">
         <Form.Label as="p" className={labelStyle}>Do you smoke ?</Form.Label>
 
         <Form.Check
