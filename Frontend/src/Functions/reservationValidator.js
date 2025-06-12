@@ -25,6 +25,9 @@ const isFalse = (arr, label, err) => {
 export function reservationValidator(newSeat, arrDishes) {
 
     const results = [];
+    
+    console.log(newSeat);
+    console.log(arrDishes);
 
     const { fname, lname, email, phone, guests, smoking, bookDay, bookTime, legalAge } = newSeat;
 
